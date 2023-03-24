@@ -107,6 +107,3 @@ int	found_line(t_tab **struc)
 	}
 	return (pos_struc);
 }
-
-test
-  
