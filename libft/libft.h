@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jsoulet <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mdiamant <mdiamant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 16:48:40 by jsoulet           #+#    #+#             */
-/*   Updated: 2023/02/20 16:48:44 by jsoulet          ###   ########.fr       */
+/*   Updated: 2023/03/24 12:22:04 by mdiamant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 
 typedef struct s_list {
 	int			content;
+	int			index;
 	struct s_list	*next;
 }	t_list;
 

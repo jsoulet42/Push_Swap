@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jsoulet <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mdiamant <mdiamant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 15:18:53 by jsoulet           #+#    #+#             */
-/*   Updated: 2023/02/20 15:19:01 by jsoulet          ###   ########.fr       */
+/*   Updated: 2023/03/24 12:21:38 by mdiamant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ t_list	*ft_lstnew(int content)
 	if (!lst)
 		return (0);
 	lst->content = content;
+	lst->index = 0;
 	lst->next = 0;
 	return (lst);
 }
