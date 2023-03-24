@@ -23,7 +23,5 @@ void	clear_tabs(t_tab **tabm, int pos_line, int offset)
 	}
 }
 
-void	first_sort(t_list **a, t_list **b, t_tab **tabm, int pos_line)
-{
-	
-}
+//void	first_sort(t_list **a, t_list **b, t_tab **tabm, int pos_line)
+

@@ -22,7 +22,7 @@ typedef  struct s_tab
 
 void	creat_list(t_list **a, char **argv, int argc);
 
-void	first_sort(t_list **a, t_list **b, t_tab **tabm, int pos_line);
+//void	first_sort(t_list **a, t_list **b, t_tab **tabm, int pos_line);
 
 void	clear_tabs(t_tab **tabm, int pos_line, int offset);
 

@@ -15,13 +15,13 @@ void	creat_list(t_list **a, char **argv, int argc)
 int main(int argc, char **argv)
 {
     t_list  *a;
-    t_list  *b;
+    //t_list  *b;
     t_tab   **tabm;
 	int 	pos_line;
 	int 	k;
 
 	a = NULL;
-	b = NULL;
+	//b = NULL;
 	if (argc < 2)
 		return (0);
 	/*if (argc == 2)
@@ -42,7 +42,7 @@ int main(int argc, char **argv)
 		k++;
 	}
 	clear_tabs(tabm, pos_line, 0);
-	first_sort(&a, &b, tabm, pos_line);
+	//first_sort(&a, &b, tabm, pos_line);
 	//printf(" posline =%d\n", pos_line);
     /*for (int i = 0; i < 1; i++)
     {
