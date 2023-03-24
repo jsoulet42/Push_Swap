@@ -43,7 +43,7 @@ int main(int argc, char **argv)
 		printf("%d ", tabm[pos_line]->tabs[k]);
 		k++;
 	}
-	first_sort(&a, &b, tabm, pos_line);
+	first_sort(&a, &b, tabm);
 	// printf(" posline =%d\n", pos_line);
 	/*for (int i = 0; i < 1; i++)
 	{

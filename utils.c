@@ -61,7 +61,7 @@ int	in_tab(t_list **a, t_tab **tabm)
 	return (0);
 }
 
-void	first_sort(t_list **a, t_list **b, t_tab **tabm, int pos_line)
+void	first_sort(t_list **a, t_list **b, t_tab **tabm)
 {
 	int j;
 	int temp;
