@@ -22,6 +22,16 @@ typedef  struct s_tab
 
 void	creat_list(t_list **a, char **argv, int argc);
 
+int	in_tab(t_list **a, t_tab **tabm);
+
+void make_index_b2(t_tab *t, t_list **b);
+
+void	make_index_a(t_list **a);
+
+void    make_index_b(t_tab *t, t_list **b);
+
+void	chearch_add_min(t_list *a, t_tab **tabm);
+
 //void	first_sort(t_list **a, t_list **b, t_tab **tabm, int pos_line);
 
 void	clear_tabs(t_tab **tabm, int pos_line, int offset);
