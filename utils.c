@@ -63,13 +63,11 @@ int	in_tab(t_list **a, t_tab **tabm)
 
 void	first_sort(t_list **a, t_list **b, t_tab **tabm)
 {
-	int j;
-	int temp;
+	t_list	*temp;
 
-	temp = ft_lstlast(a);
-	j = 0;
-	while (j < (*tabm)->lens)
-	{
+	temp = ft_lstlast(*a);
+	while (temp->content != (*a)->content)
+	{	
 		if (in_tab(a, tabm) == 1)
 		{
 			ra(a);
@@ -77,7 +75,6 @@ void	first_sort(t_list **a, t_list **b, t_tab **tabm)
 		else
 		{
 			pb(a, b);
-			j++;
-		}
+		}		
 	}
 }
