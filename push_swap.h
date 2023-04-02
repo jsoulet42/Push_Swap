@@ -18,6 +18,7 @@ typedef  struct k_tab
     int *tabs;
     int s_len;
 	int	note;
+	int best;
 	int index;
 }               j_tab;
 

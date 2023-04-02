@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   manager_min.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: julien <julien@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 15:32:07 by julien            #+#    #+#             */
-/*   Updated: 2023/03/30 09:56:05 by julien           ###   ########.fr       */
+/*   Updated: 2023/04/02 14:13:08 by jsoulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	chearch_add_min(t_list *a, t_tab **tabm)
 
 void	replace_a(t_list **a, t_list **b, int action)
 {
-	if (action == 0 || action == - 1)	
+	if (action == 0 || action == - 1)
 		return ;
 	ft_p(a, b, 1);
 	if (action > 0)
@@ -95,7 +95,7 @@ int	remontada_2(t_list **a, t_list **b, int chearch, int action, int i)
 		}
 	}
 	return (action);
-}	
+}
 
 
 /*void	first_sort(t_list **a, t_list **b, t_tab **tabm)
@@ -104,7 +104,7 @@ int	remontada_2(t_list **a, t_list **b, int chearch, int action, int i)
 
 	temp = ft_lstlast(*a);
 	while (temp->content != (*a)->content)
-	{	
+	{
 		if (in_tab(*a, *tabm) == 1)
 			ft_rr(a, b, 1);
 		else

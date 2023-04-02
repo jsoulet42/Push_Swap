@@ -6,7 +6,7 @@
 /*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 11:40:22 by julien            #+#    #+#             */
-/*   Updated: 2023/03/31 16:21:01 by jsoulet          ###   ########.fr       */
+/*   Updated: 2023/04/02 14:57:56 by jsoulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	mall_jtab(t_list *a, j_tab ***jtab_real, int t_len, int tabm_len)
 			return ;
 		jtab[i]->index = 0;
 		jtab[i]->s_len = 0;
-		jtab[i]->index = 0;
+		jtab[i]->best = 0;
 		i++;
 	}
 	jtab[i] = NULL;

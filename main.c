@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/02 14:07:20 by jsoulet           #+#    #+#             */
+/*   Updated: 2023/04/02 14:56:59 by jsoulet          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void creat_list(t_list **a, char **argv, int argc)
@@ -81,7 +93,7 @@ void print_lst(t_list *a) // a supprimer
 	printf("////////////////////////\n");
 }
 
-void print_tabj(j_tab **jtab)
+void print_tabj(j_tab **jtab) // a supprimer
 {
 	int i;
 	int j;
@@ -100,6 +112,7 @@ void print_tabj(j_tab **jtab)
 		printf("\njtab[%d]->index = %d\n", i, jtab[i]->index);
 		printf("jtab[%d]->s_len = %d\n", i, jtab[i]->s_len);
 		printf("jtab[%d]->note = %d\n", i, jtab[i]->note);
+		printf("jtab[%d]->best = %d\n", i, jtab[i]->best);
 		i++;
 		printf("----------------------\n");
 	}

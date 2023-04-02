@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   make_index.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: julien <julien@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 11:38:58 by mdiamant          #+#    #+#             */
-/*   Updated: 2023/03/30 11:50:31 by julien           ###   ########.fr       */
+/*   Updated: 2023/04/02 14:11:43 by jsoulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void    make_index_b(t_tab *t, t_list **b)
 {
     t_list  *temp;
     int     i;
-	
+
 	if (!*b || !t || !t->tabs || !b)
 		return ;
 	temp = *b;

@@ -1,5 +1,16 @@
-#include "push_swap.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   make_line.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/02 14:12:10 by jsoulet           #+#    #+#             */
+/*   Updated: 2023/04/02 14:12:33 by jsoulet          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+#include "push_swap.h"
 
 /*cette fonction sert a remplir le tableau de structure*/
 void    make_line(t_tab **struc, t_list *a)
@@ -59,7 +70,7 @@ void fusion_tab(t_tab **struc, int len_max, int pos_struc, int i)
         j++;
     }
 }
-/*cette fonction sert a retourner la position du tableau ou la plus grande 
+/*cette fonction sert a retourner la position du tableau ou la plus grande
 suite est trouver*/
 int	found_line(t_tab **struc)
 {
@@ -80,4 +91,4 @@ int	found_line(t_tab **struc)
 		i++;
 	}
 	return (pos_struc);
-} 
+}
