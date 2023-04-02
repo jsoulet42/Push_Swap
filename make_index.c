@@ -6,7 +6,7 @@
 /*   By: julien <julien@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 11:38:58 by mdiamant          #+#    #+#             */
-/*   Updated: 2023/03/24 17:33:30 by julien           ###   ########.fr       */
+/*   Updated: 2023/03/30 11:50:31 by julien           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ void    make_index_b(t_tab *t, t_list **b)
 {
     t_list  *temp;
     int     i;
-
-    if (!b || !*b || !t || !t->tabs)
-        return ;
+	
+	if (!*b || !t || !t->tabs || !b)
+		return ;
 	temp = *b;
 	if (t->lens == 1)
 	{
@@ -27,15 +27,18 @@ void    make_index_b(t_tab *t, t_list **b)
 	}
     while (temp)
     {
-        i = 0;
-        while (i < t->lens)
+        i = 1;
+        while (i <= t->lens)
         {
-            if (temp->content > t->tabs[i] && temp->content < t->tabs[i + 1])
-                temp->index = i * 2 + 1;
+            if (temp->content < t->tabs[i - 1] && temp->content > t->tabs[i])
+            {
+				temp->index = (t->lens - i) * 2 - 1;
+				break ;
+			}
             i++;
         }
-		if (temp->content > t->tabs[i - 1])
-			temp->index = i * 2 + 1;
+		if (temp->content > t->tabs[0])
+			temp->index = t->lens * 2 - 1;
         temp = temp->next;
     }
 }
@@ -43,7 +46,6 @@ void    make_index_b(t_tab *t, t_list **b)
 void make_index_b2(t_tab *t, t_list **b)
 {
 	t_list	*temp;
-	int		i;
 
 	if (!b || !*b || !t || !t->tabs)
 		return ;
@@ -55,10 +57,11 @@ void make_index_b2(t_tab *t, t_list **b)
 		}
 }
 
-void	make_index_a(t_list **a)
+void	make_index_a(t_tab *tabm, t_list **a)
 {
 	t_list	*temp;
 	int		i;
+	int		j;
 
 	if (!a || !*a)
 		return ;
@@ -66,7 +69,16 @@ void	make_index_a(t_list **a)
 	i = 0;
 	while (temp)
 	{
-		temp->index = i * 2;
+		j = 0;
+		while (j < tabm->lens)
+		{
+			if (temp->content == tabm->tabs[j])
+			{
+				temp->index = (tabm->lens - j - 1) * 2;
+				break ;
+			}
+			j++;
+		}
 		temp = temp->next;
 		i++;
 	}

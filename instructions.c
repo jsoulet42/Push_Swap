@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   instructions.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: julien <julien@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/29 21:57:56 by julien            #+#    #+#             */
+/*   Updated: 2023/03/30 09:58:43 by julien           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
  #include "push_swap.h"
 
 void sa(t_list **a)
@@ -10,16 +22,32 @@ void sa(t_list **a)
     (*a)->next = temp1->next;
     temp1->next = *a;
     *a = temp1;
-
-
 }
                                             
-void    ss(t_list **a, t_list **b)
+void    ft_ss(t_list **a, t_list **b, int ist)
 {
-    if (!a || !b || !(*a) || !(*b))
-        return ;
-    sa(a);
-    sa(b);
+	if (ist == 1)
+    {
+		if (!a || !(*a) || !(*a)->next)
+			return ;
+		sa(a);
+		printf("sa\n");
+	}
+	if (ist == 2)
+	{
+		if (!b || !(*b) || !(*b)->next)
+			return ;
+		sa(b);
+		printf("sb\n");
+	}
+	if (ist == 3)
+	{
+		if (!a || !b || !(*a) || !(*b))
+			return ;
+		sa(a);
+		sa(b);
+		printf("ss\n");
+	}
 }
 
 void    pa(t_list **a, t_list **b)
@@ -34,16 +62,22 @@ void    pa(t_list **a, t_list **b)
     *a = temp;
 }
 
-void    pb(t_list **a, t_list **b)
+void	ft_p(t_list **a, t_list **b, int ist)
 {
-    t_list  *temp;
-
-    if (!a || !(*a))
-        return ;
-    temp = *a;
-    *a = (*a)->next;
-    temp->next = *b;
-    *b = temp;
+	if (ist == 1)
+	{
+		if (!a || !(*a))
+			return ;
+		pa(b, a);
+		printf("pb\n");
+	}
+	else if (ist == 2)
+	{
+		if (!b || !(*b))
+			return ;
+		pa(a, b);
+		printf("pa\n");
+	}
 }
 
 void    ra(t_list **a)
@@ -60,12 +94,30 @@ void    ra(t_list **a)
     temp->next = NULL;
 }
 
-void    rr(t_list **a, t_list **b)
+void    ft_rr(t_list **a, t_list **b, int ist)
 {
-    if (!a || !b || !(*a) || !(*b))
-        return ;
-    ra(a);
-    ra(b);
+	if (ist == 1)
+	{
+		if (!a || !(*a))
+			return ;
+		ra(a);
+		printf("ra\n");
+	}
+	else if (ist == 2)
+	{
+		if (!b || !(*b))
+			return ;
+		ra(b);
+		printf("rb\n");
+	}
+	else if (ist == 3)
+	{
+		if (!a || !b || !(*a) || !(*b))
+			return ;
+		ra(a);
+		ra(b);
+		printf("rr\n");
+	}
 }
 
 void    rra(t_list **a)
@@ -84,10 +136,28 @@ void    rra(t_list **a)
     *a = last;
 }
 
-void    rrr(t_list **a, t_list **b)
+void    ft_rrr(t_list **a, t_list **b, int ist)
 {
-    if (!a || !b || !(*a) || !(*b))
-        return ;
-    rra(a);
-    rra(b);
+	if (ist == 1)
+	{
+		if (!a || !(*a))
+			return ;
+		rra(a);
+		printf("rra\n");
+	}
+	if (ist == 2)
+	{
+		if (!b || !(*b))
+			return ;
+		rra(b);
+		printf("rrb\n");
+	}
+	if (ist == 3)
+	{
+		if (!a || !b || !(*a) || !(*b))
+			return ;
+		rra(a);
+		rra(b);
+		printf("rrr\n");
+	}
 }

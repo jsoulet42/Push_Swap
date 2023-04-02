@@ -1,13 +1,18 @@
-SRCS	=	push_swap.c\
+SRCS	=	make_line.c\
+			make_index.c\
 			instructions.c\
 			main.c\
-			utils.c
+			manager_min.c\
+			free_all.c\
+			manager_tab.c\
+			manager_tab2.c \
+			notation.c
 
 OBJS	=	$(SRCS:.c=.o)
 
 CC	=	gcc
 
-CFLAGS	=	-Wall -Wextra -Werror -I $(LIB)
+CFLAGS	=	-Wall -Wextra -Werror -I $(LIB) -g -fsanitize=address
 
 RM = rm -f
 
@@ -37,4 +42,4 @@ fclean:	clean
 		@make -C $(LIB) fclean
 
 re:		fclean all
-		
+
