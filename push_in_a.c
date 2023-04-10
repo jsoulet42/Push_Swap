@@ -1,49 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_all.c                                         :+:      :+:    :+:   */
+/*   push_in_a.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/29 12:20:33 by julien            #+#    #+#             */
-/*   Updated: 2023/04/05 12:45:05 by jsoulet          ###   ########.fr       */
+/*   Created: 2023/04/07 23:51:45 by jsoulet           #+#    #+#             */
+/*   Updated: 2023/04/10 08:33:40 by jsoulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	clear_tabs(t_tab **tabm, int pos_line, int offset)
+void a_replace(t_list **a, t_list **b)
 {
-	int	i;
-
-	i = 0;
-	if (offset == 1)
-	{
-		free(tabm[pos_line]->tabs);
-		free(tabm[pos_line]);
-		free (tabm);
-		return ;
-	}
-	while (tabm[i])
-	{
-		if (pos_line != i)
-		{
-			free(tabm[i]->tabs);
-			free(tabm[i]);
-		}
-		i++;
-	}
+	while ((*a)->index != 2)
+		ft_rr(&a, &b, 1);
 }
 
-void clear_jtab(j_tab **jtab)
+/*void push_in_a(t_list **a, t_list **b)
 {
-	int	i;
 
-	i = 0;
-	while (jtab[i])
-	{
-		free(jtab[i]->tabs);
-		free(jtab[i]);
-		i++;
-	}
-}
+}*/

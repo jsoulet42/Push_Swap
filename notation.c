@@ -6,92 +6,87 @@
 /*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 12:53:35 by jsoulet           #+#    #+#             */
-/*   Updated: 2023/04/02 14:53:22 by jsoulet          ###   ########.fr       */
+/*   Updated: 2023/04/07 10:30:13 by jsoulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void algo_note(t_list *a, j_tab **jtab)
-{
-	int i;
-
-	i = 0;
-	while (jtab[i] != NULL)
-	{
-		jtab[i]->note = algo_note2(a, jtab[i]->index);
-		i++;
-	}
-}
-
-int	algo_note2(t_list *a, int index)
-{
-	int	i;
-	int	j;
-	int	rslt;
-
-	i = 0;
-	j = 0;
-	rslt = 0;
-	while (a)
-	{
-		while(a->next && a->index != index)
-		{
-			a = a->next;
-			i++;
-		}
-		if (!a->next)
-			break ;
-		rslt += i - j;
-		j = i;
-		a = a->next;
-		i++;
-	}
-	return (rslt);
-}
-
-void found_best(j_tab **jtab)
+int	found_big_len(j_tab **jtab)
 {
 	int best1;
-	int best2;
-	int temp;
 	int i;
+	int pos_big_len;
+
+	if (!jtab || !jtab[0])
+		return (0);
 
 	i = 0;
-	best1 = jtab[i]->s_len;
-	best2 = jtab[i + 1]->s_len;
-	if (best2 > best1)
-	{
-		temp = best1;
-		best1 = best2;
-		best2 = temp;
-	}
+	best1 = jtab[0]->s_len;
 	while (jtab[i])
 	{
-		if (jtab[i]->s_len > best1 && jtab[i]->s_len > best2)
+		if (jtab[i]->s_len >= best1)
 		{
 			best1 = jtab[i]->s_len;
-		}
-		else if (jtab[i]->s_len > best2 && jtab[i]->s_len < best1)
-		{
-			best2 = jtab[i]->s_len;
+			pos_big_len = i;
 		}
 		i++;
 	}
-	best_is(jtab, best1, best2);
+	return (pos_big_len);
 }
 
-void best_is(j_tab **jtab, int best1, int best2)
+int	found_next_index(j_tab **jtab, int index)
 {
 	int i;
+	int	index_next;
 
+	if (!jtab || !jtab[0] || index == found_index_max(jtab))
+		return (0);
+	index_next = -1;
 	i = 0;
 	while (jtab[i])
 	{
-		if (jtab[i]->s_len == best1)
-			jtab[i]->best = 1;
-		else if (jtab[i]->s_len == best2)
-			jtab[i]->best = 2;
+		if (index_next == -1 && jtab[i]->index > jtab[index]->index)
+			index_next = i;
+		if (jtab[i]->index > jtab[index]->index && jtab[i]->index < jtab[index_next]->index)
+			index_next = i;
 		i++;
 	}
+		return (index_next);
+}
+
+int found_index_min(j_tab **jtab) // surement a supprimer
+{
+	int i;
+	int index_min;
+
+	if (!jtab || !jtab[0] || !jtab[1])
+		return (0);
+	i = 0;
+	index_min = found_index_max(jtab);
+	while (jtab[i])
+	{
+		if (jtab[i]->index < jtab[index_min]->index)
+			index_min = i;
+		i++;
+	}
+	return(index_min);
+}
+
+int	found_index_max(j_tab **jtab) // surement a supprimer
+{
+	int i;
+	int res;
+
+	i = 0;
+	res = 0;
+	if (!jtab || !jtab[0])
+		return (0);
+	while (jtab[i])
+	{
+		if (jtab[i]->index > jtab[res]->index)
+			res = i;
+		i++;
+	}
+	return (res);
 }

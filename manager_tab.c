@@ -6,7 +6,7 @@
 /*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 12:11:18 by julien            #+#    #+#             */
-/*   Updated: 2023/03/31 11:13:59 by jsoulet          ###   ########.fr       */
+/*   Updated: 2023/04/06 14:08:13 by jsoulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ int	*index_tab(t_list *a, t_tab *tabm)
 	int	*tabi;
 	int	i;
 
-	tabi = malloc(sizeof(int) * tabm->lens);
-	if (!tabi)
+	tabi = malloc(sizeof(int) * (tabm->lens + 1));
+	if (!tabi || tabm->lens <= 1)
 		return (0);
 	i = 0;
 	while (a)

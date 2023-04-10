@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jsoulet <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 15:04:52 by jsoulet           #+#    #+#             */
-/*   Updated: 2023/02/20 15:05:42 by jsoulet          ###   ########.fr       */
+/*   Updated: 2023/04/04 10:47:47 by jsoulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+long long int	ft_atoi(const char *str)
 {
-	int	nb;
+	long long int	nb;
 	int	i;
 	int	is_neg;
 
@@ -30,5 +30,5 @@ int	ft_atoi(const char *str)
 		nb = nb * 10 + str[i++] - 48;
 	return (nb * is_neg);
 }
-/*nb * 10 + stri  = le resultat en table ascci si - 48  
+/*nb * 10 + stri  = le resultat en table ascci si - 48
 on retombe sur le chiffre demandé.*/

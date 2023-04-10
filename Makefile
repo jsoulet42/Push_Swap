@@ -6,7 +6,11 @@ SRCS	=	make_line.c\
 			free_all.c\
 			manager_tab.c\
 			manager_tab2.c \
-			notation.c
+			notation.c\
+			conditions.c\
+			push_in_b.c\
+			push_in_a.c\
+			push_pattern.c
 
 OBJS	=	$(SRCS:.c=.o)
 

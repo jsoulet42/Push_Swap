@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   instructions.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: julien <julien@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 21:57:56 by julien            #+#    #+#             */
-/*   Updated: 2023/03/30 09:58:43 by julien           ###   ########.fr       */
+/*   Updated: 2023/04/03 12:27:17 by jsoulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void sa(t_list **a)
 {
-    t_list  *temp1; 
+    t_list  *temp1;
 
     if (!a || !(*a)->next)
         return ;
@@ -23,29 +23,29 @@ void sa(t_list **a)
     temp1->next = *a;
     *a = temp1;
 }
-                                            
-void    ft_ss(t_list **a, t_list **b, int ist)
+
+void    ft_ss(t_list ***a, t_list ***b, int ist)
 {
 	if (ist == 1)
     {
-		if (!a || !(*a) || !(*a)->next)
+		if (!a || !(**a) || !(**a)->next)
 			return ;
-		sa(a);
+		sa(*a);
 		printf("sa\n");
 	}
 	if (ist == 2)
 	{
-		if (!b || !(*b) || !(*b)->next)
+		if (!b || !(*b) || !(**b)->next)
 			return ;
-		sa(b);
+		sa(*b);
 		printf("sb\n");
 	}
 	if (ist == 3)
 	{
-		if (!a || !b || !(*a) || !(*b))
+		if (!a || !b || !(**a) || !(**b))
 			return ;
-		sa(a);
-		sa(b);
+		sa(*a);
+		sa(*b);
 		printf("ss\n");
 	}
 }
@@ -62,20 +62,20 @@ void    pa(t_list **a, t_list **b)
     *a = temp;
 }
 
-void	ft_p(t_list **a, t_list **b, int ist)
+void	ft_p(t_list ***a, t_list ***b, int ist)
 {
 	if (ist == 1)
 	{
-		if (!a || !(*a))
+		if (!a || !(**a))
 			return ;
-		pa(b, a);
+		pa(*b, *a);
 		printf("pb\n");
 	}
 	else if (ist == 2)
 	{
-		if (!b || !(*b))
+		if (!b || !(**b))
 			return ;
-		pa(a, b);
+		pa(*a, *b);
 		printf("pa\n");
 	}
 }
@@ -94,28 +94,28 @@ void    ra(t_list **a)
     temp->next = NULL;
 }
 
-void    ft_rr(t_list **a, t_list **b, int ist)
+void    ft_rr(t_list ***a, t_list ***b, int ist)
 {
 	if (ist == 1)
 	{
-		if (!a || !(*a))
+		if (!a || !(**a))
 			return ;
-		ra(a);
+		ra(*a);
 		printf("ra\n");
 	}
 	else if (ist == 2)
 	{
-		if (!b || !(*b))
+		if (!b || !(**b))
 			return ;
-		ra(b);
+		ra(*b);
 		printf("rb\n");
 	}
 	else if (ist == 3)
 	{
-		if (!a || !b || !(*a) || !(*b))
+		if (!a || !b || !(**a) || !(**b))
 			return ;
-		ra(a);
-		ra(b);
+		ra(*a);
+		ra(*b);
 		printf("rr\n");
 	}
 }
@@ -136,28 +136,28 @@ void    rra(t_list **a)
     *a = last;
 }
 
-void    ft_rrr(t_list **a, t_list **b, int ist)
+void    ft_rrr(t_list ***a, t_list ***b, int ist)
 {
 	if (ist == 1)
 	{
-		if (!a || !(*a))
+		if (!a || !(**a))
 			return ;
-		rra(a);
+		rra(*a);
 		printf("rra\n");
 	}
 	if (ist == 2)
 	{
-		if (!b || !(*b))
+		if (!b || !(**b))
 			return ;
-		rra(b);
+		rra(*b);
 		printf("rrb\n");
 	}
 	if (ist == 3)
 	{
-		if (!a || !b || !(*a) || !(*b))
+		if (!a || !b || !(**a) || !(**b))
 			return ;
-		rra(a);
-		rra(b);
+		rra(*a);
+		rra(*b);
 		printf("rrr\n");
 	}
 }

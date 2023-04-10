@@ -6,7 +6,7 @@
 /*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 15:32:07 by julien            #+#    #+#             */
-/*   Updated: 2023/04/02 14:13:08 by jsoulet          ###   ########.fr       */
+/*   Updated: 2023/04/06 16:43:08 by jsoulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,12 @@ void	replace_a(t_list **a, t_list **b, int action)
 {
 	if (action == 0 || action == - 1)
 		return ;
-	ft_p(a, b, 1);
+	ft_p(&a, &b, 1);
 	if (action > 0)
 	{
 		while (action > 0)
 		{
-			ft_rrr(a, b, 1);
+			ft_rrr(&a, &b, 1);
 			action--;
 		}
 	}
@@ -50,11 +50,11 @@ void	replace_a(t_list **a, t_list **b, int action)
 	{
 		while (action < - 1)
 		{
-			ft_rr(a, b, 1);
+			ft_rr(&a, &b, 1);
 			action++;
 		}
 	}
-	ft_p(a, b, 2);
+	ft_p(&a, &b, 2);
 }
 
 int	remontada(t_list **a, t_list **b, int chearch)
@@ -82,7 +82,7 @@ int	remontada_2(t_list **a, t_list **b, int chearch, int action, int i)
 	{
 		while ((*a)->content != chearch)
 		{
-			ft_rr(a, b, 1);
+			ft_rr(&a, &b, 1);
 			++action;
 		}
 	}
@@ -90,24 +90,9 @@ int	remontada_2(t_list **a, t_list **b, int chearch, int action, int i)
 	{
 		while ((*a)->content != chearch)
 		{
-			ft_rrr(a, b, 1);
+			ft_rrr(&a, &b, 1);
 			--action;
 		}
 	}
 	return (action);
 }
-
-
-/*void	first_sort(t_list **a, t_list **b, t_tab **tabm)
-{
-	t_list	*temp;
-
-	temp = ft_lstlast(*a);
-	while (temp->content != (*a)->content)
-	{
-		if (in_tab(*a, *tabm) == 1)
-			ft_rr(a, b, 1);
-		else
-			pb(a, b);
-	}
-}*/
