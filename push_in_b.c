@@ -6,7 +6,7 @@
 /*   By: mdiamant <mdiamant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 12:50:05 by jsoulet           #+#    #+#             */
-/*   Updated: 2023/04/11 09:25:39 by mdiamant         ###   ########.fr       */
+/*   Updated: 2023/04/11 09:46:33 by mdiamant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int	next_p(j_tab **jtab, t_list **a, int curent_big)
 					if (temp->index == tab_p[j])
 					{
 						tab_p[j] = 0;
-						jtab[i]->note -= 1;
+						jtab[i]->note -= 1000;
 					}
 					j++;
 				}
