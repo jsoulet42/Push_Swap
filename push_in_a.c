@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_in_a.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
+/*   By: mdiamant <mdiamant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 23:51:45 by jsoulet           #+#    #+#             */
-/*   Updated: 2023/04/10 08:33:40 by jsoulet          ###   ########.fr       */
+/*   Updated: 2023/04/11 09:14:36 by mdiamant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void a_replace(t_list **a, t_list **b)
 {
-	while ((*a)->index != 2)
-		ft_rr(&a, &b, 1);
+		while ((*a)->index != 2)
+			ft_rr(&a, &b, 1);
 }
 
 /*void push_in_a(t_list **a, t_list **b)

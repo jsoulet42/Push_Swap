@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
+/*   By: mdiamant <mdiamant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 14:07:20 by jsoulet           #+#    #+#             */
-/*   Updated: 2023/04/08 00:02:19 by jsoulet          ###   ########.fr       */
+/*   Updated: 2023/04/11 09:15:06 by mdiamant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ int main(int argc, char **argv)
 	if (!tabi || tabi[0] == -1)
 	{
 		clear_all(a, tabm, pos_line, tabi);
-		ft_lstclear(&b);
 		return (0);
 	}
 	/*int k = 0;
@@ -73,6 +72,13 @@ int main(int argc, char **argv)
 		k++;
 	}*/
 	make_jtab(a, &jtab, tabi, tabm[pos_line]->lens);
+	if (!jtab)
+	{
+		clear_all(a, tabm, pos_line, tabi);
+		printf("la creation de jtab a echouee\n");
+		return (0);
+	}
+	//print_tabj(jtab);
 	//printf("tabi_len = %d\n", tabi_len(tabi));
 	//make_best_all(jtab, tabi_len(tabi));
 	//print_tabj(jtab);

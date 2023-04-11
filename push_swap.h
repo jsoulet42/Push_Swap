@@ -18,6 +18,7 @@ typedef  struct k_tab
     int *tabs;
     int s_len;
 	int index;
+    int note;
 }               j_tab;
 
 //---------------------------- instructions -----------------------------------//
@@ -108,11 +109,11 @@ void clear_jtab(j_tab **jtab);
 
 int	found_big_len(j_tab **jtab);
 
-int		found_best_index(j_tab **jtab, int best);
+//int		found_best_index(j_tab **jtab, int best);
 
 int		found_index_max(j_tab **jtab);
 
-void	make_best_all(j_tab **jtab, int tabi_len);
+//void	make_best_all(j_tab **jtab, int tabi_len);
 
 int found_next_index(j_tab **jtab, int index);
 
@@ -122,13 +123,21 @@ int found_index_min(j_tab **jtab); //////////////////////
 
 void	manager_friend(t_list **a, t_list **b, j_tab **jtab);
 
-int next_big(j_tab **jtab, int best);
+int next_p(j_tab **jtab, t_list **a, int best);
 
 int	push_in_b(t_list ***a, t_list ***b, int best1, int best2);
 
-int	prev_chx(j_tab **jtab, int best, int best_max);
+int chx_rotate(t_list *a, int index1, int index2);
 
-int	next_chx(j_tab **jtab, int best, int best_max);
+void push_in_b_suit(t_list ***a, t_list ***b, int id1, int id2);
+
+int	verif(t_list *a);
+
+//void push_in_b_suit2(t_list ***a, t_list ***b, int id1, int id2);
+
+//int	prev_chx(j_tab **jtab, int best, int best_max);
+
+//int	next_chx(j_tab **jtab, int best, int best_max);
 
 //------------------------------ conditions ----------------------------------//
 
@@ -141,16 +150,15 @@ int	found_int(int argc, char **argv);
 int found_conditions(int argc, char **argv);
 
 
-int	verif(j_tab **jtab);
+//------------------------------ push_in_b ----------------------------------//
 
-int chx_rotate(t_list *a, int index1, int index2);
 
-int found_best_little(j_tab **jtab, t_list **a, int current_p);
+
+
+//int found_best_little(j_tab **jtab, t_list **a, int current_p);
 
 void a_replace(t_list **a, t_list **b);
 
-void push_in_b_suit(t_list ***a, t_list ***b, int id1);
 
-void push_in_b_suit2(t_list ***a, t_list ***b, int id1);
 
 #endif
