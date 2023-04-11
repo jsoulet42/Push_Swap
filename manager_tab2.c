@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   manager_tab2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
+/*   By: mdiamant <mdiamant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 11:40:22 by julien            #+#    #+#             */
-/*   Updated: 2023/04/06 11:30:21 by jsoulet          ###   ########.fr       */
+/*   Updated: 2023/04/10 17:33:27 by mdiamant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ void	mall_jtab(t_list *a, j_tab ***jtab_real, int t_len, int tabm_len)
 			return ;
 		jtab[i]->index = 0;
 		jtab[i]->s_len = 0;
+		jtab[i]->note = 0;
 		i++;
 	}
 	jtab[i] = NULL;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_all.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
+/*   By: mdiamant <mdiamant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 12:20:33 by julien            #+#    #+#             */
-/*   Updated: 2023/04/05 12:45:05 by jsoulet          ###   ########.fr       */
+/*   Updated: 2023/04/10 14:40:59 by mdiamant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,5 @@ void clear_jtab(j_tab **jtab)
 		free(jtab[i]);
 		i++;
 	}
+	free(jtab);
 }

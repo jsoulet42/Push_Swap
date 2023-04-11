@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   manager_min.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
+/*   By: mdiamant <mdiamant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 15:32:07 by julien            #+#    #+#             */
-/*   Updated: 2023/04/06 16:43:08 by jsoulet          ###   ########.fr       */
+/*   Updated: 2023/04/10 13:35:57 by mdiamant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 void	chearch_add_min(t_list *a, t_tab **tabm)
 {
