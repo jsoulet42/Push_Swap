@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_all.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdiamant <mdiamant@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 12:20:33 by julien            #+#    #+#             */
-/*   Updated: 2023/04/10 14:40:59 by mdiamant         ###   ########.fr       */
+/*   Updated: 2023/04/24 09:05:27 by jsoulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	clear_tabs(t_tab **tabm, int pos_line, int offset)
 	}
 }
 
-void clear_jtab(j_tab **jtab)
+void	clear_jtab(j_tab **jtab)
 {
 	int	i;
 
@@ -43,8 +43,12 @@ void clear_jtab(j_tab **jtab)
 	while (jtab[i])
 	{
 		free(jtab[i]->tabs);
+		free(jtab[i]->p_line);
+		free(jtab[i]->exclu);
+		free(jtab[i]->inclu);
+		free(jtab[i]->pl_temp);
+		free(jtab[i]->excl_2);
 		free(jtab[i]);
 		i++;
 	}
-	free(jtab);
 }

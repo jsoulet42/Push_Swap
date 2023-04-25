@@ -6,6 +6,7 @@
 # include <sys/types.h>
 # include <unistd.h>
 # include "libft.h"
+# include "ft_printf.h"
 
 typedef  struct s_tab
 {
@@ -16,10 +17,22 @@ typedef  struct s_tab
 typedef  struct k_tab
 {
     int *tabs;
+	int *p_line;
+	int	*pl_temp;
+	int *exclu;
+	int *inclu;
+	int *excl_2;
     int s_len;
 	int index;
-    int note;
 }               j_tab;
+
+typedef struct l_tab
+{
+	int *current1;
+	int *current2;
+	int current1_len;
+	int current2_len;
+}			m_tab;
 
 //---------------------------- instructions -----------------------------------//
 
@@ -59,6 +72,9 @@ void	mall_jtab(t_list *a, j_tab ***jtab, int len, int t_len);
 
 int		make_jtab2(t_list *a, j_tab *jtab, int index);
 
+void	mall_jtab3(j_tab **jtab, int len);
+
+
 //----------------------------- manager_min ---------------------------------//
 
 void	replace_a(t_list **a, t_list **b, int action);
@@ -75,7 +91,7 @@ void	clear_tabs(t_tab **tabm, int pos_line, int offset);
 
 void	clear_jtab(j_tab **jtab);
 
-void clear_all(t_list *a, t_tab **tabm, int pos_line, int *tabi);
+void	clear_all(t_list *a, t_tab **tabm, int pos_line, int *tabi);
 
 //------------------------------ make_index ---------------------------------//
 
@@ -103,41 +119,25 @@ void	print_lst(t_list *a); // a supprimer
 
 void 	print_tabj(j_tab **jtab); // a supprimer
 
-void clear_jtab(j_tab **jtab);
+void	ft_print_tab(int *tab);
 
-//------------------------------- notation -----------------------------------//
-
-int	found_big_len(j_tab **jtab);
-
-//int		found_best_index(j_tab **jtab, int best);
-
-int		found_index_max(j_tab **jtab);
-
-//void	make_best_all(j_tab **jtab, int tabi_len);
-
-int found_next_index(j_tab **jtab, int index);
-
-int found_index_min(j_tab **jtab); //////////////////////
+void	clear_jtab(j_tab **jtab);
 
 //------------------------------ push_in_b.c ---------------------------------//
 
 void	manager_friend(t_list **a, t_list **b, j_tab **jtab);
 
-int next_p(j_tab **jtab, t_list **a, int best);
+int		push_in_b(t_list ***a, t_list ***b, int *best1, int *best2);
 
-int	push_in_b(t_list ***a, t_list ***b, int best1, int best2);
+void	pushb_2(t_list ***a, t_list ***b, int id1, int id2);
 
-int chx_rotate(t_list *a, int index1, int index2);
+int		verif(t_list *a);
 
-void push_in_b_suit(t_list ***a, t_list ***b, int id1, int id2);
+void	push_in_b_suit2(t_list ***a, t_list ***b, int id1, int id2);
 
-int	verif(t_list *a);
+void	maj_m_tab(j_tab **jtab, m_tab **mtab);
 
-//void push_in_b_suit2(t_list ***a, t_list ***b, int id1, int id2);
-
-//int	prev_chx(j_tab **jtab, int best, int best_max);
-
-//int	next_chx(j_tab **jtab, int best, int best_max);
+m_tab	*make_mtab(j_tab **jtab);
 
 //------------------------------ conditions ----------------------------------//
 
@@ -150,15 +150,47 @@ int	found_int(int argc, char **argv);
 int found_conditions(int argc, char **argv);
 
 
-//------------------------------ push_in_b ----------------------------------//
-
-
-
-
-//int found_best_little(j_tab **jtab, t_list **a, int current_p);
+//------------------------------ push_in_a ----------------------------------//
 
 void a_replace(t_list **a, t_list **b);
 
+//------------------------------- pattern_line -------------------------------//
+int		verif_exclu(int *exclu, int index);
 
+int		found_first_in_a(j_tab *jtab, t_list *a);
+
+int		found_index(j_tab **jtab, int index);
+
+void	fill_exclu(t_list **a, j_tab **jtab);
+
+void	fill_inclu(j_tab **jtab);
+
+//------------------------------- patern_line2 -------------------------------//
+
+int		*make_p_line(j_tab **jtab);
+
+int		tab_len(int *tab);
+
+void	clear_pl_temp(int *pl_temp, int i);
+
+int		sch_int(int *tab, int nb);
+
+int		*m_p_line(j_tab **jtab, int current, int next, int step);
+
+int		*best_s_len(j_tab **jtab, int current);
+
+int		*chx_best_pl(j_tab **jtab, int current);
+
+int jtab_len(j_tab **jtab);
+
+//------------------------------- patern_line3 -------------------------------//
+
+int *copie_current(int *current);
+
+int	p_line_len(j_tab **jtab, int *p_line);
+
+int	best_p_line(j_tab **jtab);
+
+void	maj_exclu(j_tab **jtab, int pos_pline);
 
 #endif

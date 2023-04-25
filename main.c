@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdiamant <mdiamant@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 14:07:20 by jsoulet           #+#    #+#             */
-/*   Updated: 2023/04/11 09:15:06 by mdiamant         ###   ########.fr       */
+/*   Updated: 2023/04/24 15:33:59 by jsoulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ int main(int argc, char **argv)
 	if (!tabi || tabi[0] == -1)
 	{
 		clear_all(a, tabm, pos_line, tabi);
+		ft_printf("la creation de tabi a echouee\n");
 		return (0);
 	}
 	/*int k = 0;
@@ -78,13 +79,18 @@ int main(int argc, char **argv)
 		printf("la creation de jtab a echouee\n");
 		return (0);
 	}
+
+	fill_exclu(&a, jtab);
+	fill_inclu(jtab);
+	make_p_line(jtab);
+
 	//print_tabj(jtab);
 	//printf("tabi_len = %d\n", tabi_len(tabi));
 	//make_best_all(jtab, tabi_len(tabi));
-	//print_tabj(jtab);
+	print_tabj(jtab);
 	manager_friend(&a, &b, jtab);
-	a_replace(&a, &b);
-	replace_a(&a, &b, remontada(&a, &b, tabm[pos_line]->tabs[tabm[pos_line]->lens - 1]));
+	//a_replace(&a, &b);
+	//replace_a(&a, &b, remontada(&a, &b, tabm[pos_line]->tabs[tabm[pos_line]->lens - 1]));
 	//printf("//////////////////////\n");
 	/*
 	printf("lst a = \n");
@@ -117,8 +123,10 @@ void print_tabj(j_tab **jtab) // a supprimer
 	int i;
 	int j;
 	int len;
+	int p_lin_len;
 
 	i = 0;
+
 	printf("//////////////////////\n");
 	int slen = 0;
 	while (jtab[i])
@@ -132,23 +140,58 @@ void print_tabj(j_tab **jtab) // a supprimer
 	{
 		j = 0;
 		len = jtab[i]->s_len;
-		printf("jtab[%d]->tabs = ", i);
+		printf("jtab[%d]->tabs   = ", i);
 		while (len != 0)
 		{
 			printf("%d ", jtab[i]->tabs[j]);
 			len --;
 			j++;
 		}
-		printf("\njtab[%d]->index = %d\n", i, jtab[i]->index);
+		printf("\njtab[%d]->index  = %d\n", i, jtab[i]->index);
 
-		if (jtab[i]->s_len >= slen % 60)
+		/*if (jtab[i]->s_len >= slen % 60)
 			couleur("31"); // rouge
 		if (jtab[i]->s_len < slen % 60 && jtab[i]->s_len >= slen % 30)
 			couleur("33"); // jaune
 		else if (jtab[i]->s_len < slen % 30)
 			couleur("32"); // vert*/
-		printf("jtab[%d]->s_len = %d\n", i, jtab[i]->s_len);
-		couleur("0");
+		printf("jtab[%d]->s_len  = %d\n", i, jtab[i]->s_len);
+		//couleur("0");
+		int h = 0;
+		printf("jtab[%d]->exclu  =", i);
+		while (jtab[i]->exclu[h] != -1)
+		{
+			printf(" %d;", jtab[i]->exclu[h]);
+			h++;
+		}
+		printf("\n");
+		h = 0;
+		printf("jtab[%d]->inclu  =", i);
+		while (jtab[i]->inclu[h] != -1)
+		{
+			printf(" %d;", jtab[i]->inclu[h]);
+			h++;
+		}
+		printf("\n");
+		h = 0;
+		printf("jtab[%d]->p_line =", i);
+
+		p_lin_len = 0;
+
+		while (jtab[i]->p_line[h] != -1)
+		{
+			couleur("31"); // rouge
+			//if (jtab[i]->p_line[h] != -1)
+			p_lin_len += jtab[jtab[i]->p_line[h]]->s_len;
+
+			if (jtab[i]->p_line[h] == -1)
+				couleur("33"); // jaune
+			printf(" %d;", jtab[i]->p_line[h]);
+			couleur("0");
+			h++;
+		}
+
+		printf("\np_line s_len    = %d\n", p_lin_len);
 		i++;
 		printf("----------------------\n");
 	}
@@ -159,4 +202,17 @@ void clear_all(t_list *a, t_tab **tabm, int pos_line, int *tabi)
 	clear_tabs(tabm, pos_line, 1);
 	ft_lstclear(&a);
 	free(tabi);
+}
+
+void ft_print_tab(int *tab)
+{
+	int i;
+
+	i = 0;
+	while (tab[i] != -1)
+	{
+		printf("%d ", tab[i]);
+		i++;
+	}
+	printf("\n");
 }

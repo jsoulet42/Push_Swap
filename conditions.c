@@ -6,13 +6,13 @@
 /*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 10:26:47 by jsoulet           #+#    #+#             */
-/*   Updated: 2023/04/04 11:07:12 by jsoulet          ###   ########.fr       */
+/*   Updated: 2023/04/20 15:28:26 by jsoulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int found_conditions(int argc, char **argv)
+int	found_conditions(int argc, char **argv)
 {
 	if (argc == 1)
 		return (1);
@@ -25,12 +25,10 @@ int found_conditions(int argc, char **argv)
 	return (0);
 }
 
-
-
-int found_double(int argc, char **argv)
+int	found_double(int argc, char **argv)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 1;
 	while (i < argc)
@@ -47,10 +45,10 @@ int found_double(int argc, char **argv)
 	return (0);
 }
 
-int found_char(int argc, char **argv)
+int	found_char(int argc, char **argv)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 1;
 	while (i < argc)
@@ -66,10 +64,11 @@ int found_char(int argc, char **argv)
 	}
 	return (0);
 }
+
 int	found_int(int argc, char **argv)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 1;
 	while (i < argc)

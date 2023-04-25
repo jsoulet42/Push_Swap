@@ -6,7 +6,7 @@
 /*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 12:11:18 by julien            #+#    #+#             */
-/*   Updated: 2023/04/06 14:08:13 by jsoulet          ###   ########.fr       */
+/*   Updated: 2023/04/20 15:14:55 by jsoulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,30 @@
 
 /*cett fonction sert a creer un tableau de structure
 qui contient un tableau d'entier et un int*/
-t_tab    **make_tab(t_list *a)
+t_tab	**make_tab(t_list *a)
 {
-    int i;
-    int len;
-    t_tab **struc;
+	int		i;
+	int		len;
+	t_tab	**struc;
 
-    i = 0;
-    len = ft_lstsize(a);
-    struc = (t_tab **)malloc(sizeof(t_tab *) * (len + 1));
-    if (!struc || !a )
-        return (NULL);
-    while (i < len)
-    {
-        struc[i] = (t_tab *)malloc(sizeof(t_tab) * len);
-        if (!struc[i])
-            return (NULL);
+	i = 0;
+	len = ft_lstsize(a);
+	struc = (t_tab **)malloc(sizeof(t_tab *) * (len + 1));
+	if (!struc || !a)
+		return (NULL);
+	while (i < len)
+	{
+		struc[i] = (t_tab *)malloc(sizeof(t_tab) * len);
+		if (!struc[i])
+			return (NULL);
 		struc[i]->tabs = (int *)malloc(sizeof(int) * len);
 		if (!struc[i]->tabs)
 			return (NULL);
-        struc[i]->lens = 0;
-        i++;
-    }
+		struc[i]->lens = 0;
+		i++;
+	}
 	struc[i] = NULL;
-    return(struc);
+	return (struc);
 }
 
 int	*index_tab(t_list *a, t_tab *tabm)

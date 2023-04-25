@@ -6,28 +6,28 @@
 /*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 21:57:56 by julien            #+#    #+#             */
-/*   Updated: 2023/04/03 12:27:17 by jsoulet          ###   ########.fr       */
+/*   Updated: 2023/04/21 15:03:27 by jsoulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
- #include "push_swap.h"
+#include "push_swap.h"
 
-void sa(t_list **a)
+void	sa(t_list **a)
 {
-    t_list  *temp1;
+	t_list	*temp1;
 
-    if (!a || !(*a)->next)
-        return ;
-    temp1 = (*a)->next;
-    (*a)->next = temp1->next;
-    temp1->next = *a;
-    *a = temp1;
+	if (!a || !(*a)->next)
+		return ;
+	temp1 = (*a)->next;
+	(*a)->next = temp1->next;
+	temp1->next = *a;
+	*a = temp1;
 }
 
-void    ft_ss(t_list ***a, t_list ***b, int ist)
+void	ft_ss(t_list ***a, t_list ***b, int ist)
 {
 	if (ist == 1)
-    {
+	{
 		if (!a || !(**a) || !(**a)->next)
 			return ;
 		sa(*a);
@@ -50,16 +50,16 @@ void    ft_ss(t_list ***a, t_list ***b, int ist)
 	}
 }
 
-void    pa(t_list **a, t_list **b)
+void	pa(t_list **a, t_list **b)
 {
-    t_list  *temp;
+	t_list	*temp;
 
-    if (!b || !(*b))
-        return ;
-    temp = *b;
-    *b = (*b)->next;
-    temp->next = *a;
-    *a = temp;
+	if (!b || !(*b))
+		return ;
+	temp = *b;
+	*b = (*b)->next;
+	temp->next = *a;
+	*a = temp;
 }
 
 void	ft_p(t_list ***a, t_list ***b, int ist)
@@ -80,21 +80,21 @@ void	ft_p(t_list ***a, t_list ***b, int ist)
 	}
 }
 
-void    ra(t_list **a)
+void	ra(t_list **a)
 {
-    t_list  *temp;
-    t_list  *last;
+	t_list	*temp;
+	t_list	*last;
 
-    if (!a || !(*a)->next)
-        return ;
-    temp = *a;
-    last = ft_lstlast(*a);
-    *a = (*a)->next;
-    last->next = temp;
-    temp->next = NULL;
+	if (!a || !(*a)->next)
+		return ;
+	temp = *a;
+	last = ft_lstlast(*a);
+	*a = (*a)->next;
+	last->next = temp;
+	temp->next = NULL;
 }
 
-void    ft_rr(t_list ***a, t_list ***b, int ist)
+void	ft_rr(t_list ***a, t_list ***b, int ist)
 {
 	if (ist == 1)
 	{
@@ -120,23 +120,23 @@ void    ft_rr(t_list ***a, t_list ***b, int ist)
 	}
 }
 
-void    rra(t_list **a)
+void	rra(t_list **a)
 {
-    t_list  *temp;
-    t_list  *last;
+	t_list	*temp;
+	t_list	*last;
 
-    if (!a || !(*a)->next)
-        return ;
-    temp = *a;
-    last = ft_lstlast(*a);
-    while (temp->next != last)
-        temp = temp->next;
-    last->next = *a;
-    temp->next = NULL;
-    *a = last;
+	if (!a || !(*a)->next)
+		return ;
+	temp = *a;
+	last = ft_lstlast(*a);
+	while (temp->next != last)
+		temp = temp->next;
+	last->next = *a;
+	temp->next = NULL;
+	*a = last;
 }
 
-void    ft_rrr(t_list ***a, t_list ***b, int ist)
+void	ft_rrr(t_list ***a, t_list ***b, int ist)
 {
 	if (ist == 1)
 	{

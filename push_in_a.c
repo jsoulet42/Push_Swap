@@ -3,22 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   push_in_a.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdiamant <mdiamant@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 23:51:45 by jsoulet           #+#    #+#             */
-/*   Updated: 2023/04/11 09:14:36 by mdiamant         ###   ########.fr       */
+/*   Updated: 2023/04/21 15:18:08 by jsoulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void a_replace(t_list **a, t_list **b)
+void	a_replace(t_list **a, t_list **b)
 {
-		while ((*a)->index != 2)
-			ft_rr(&a, &b, 1);
+	while ((*a)->index != 2)
+		ft_rr(&a, &b, 1);
 }
-
-/*void push_in_a(t_list **a, t_list **b)
-{
-
-}*/

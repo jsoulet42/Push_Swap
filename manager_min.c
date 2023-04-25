@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   manager_min.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdiamant <mdiamant@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 15:32:07 by julien            #+#    #+#             */
-/*   Updated: 2023/04/10 13:35:57 by mdiamant         ###   ########.fr       */
+/*   Updated: 2023/04/21 15:05:55 by jsoulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	chearch_add_min(t_list *a, t_tab **tabm)
 
 void	replace_a(t_list **a, t_list **b, int action)
 {
-	if (action == 0 || action == - 1)
+	if (action == 0 || action == -1)
 		return ;
 	ft_p(&a, &b, 1);
 	if (action > 0)
@@ -47,7 +47,7 @@ void	replace_a(t_list **a, t_list **b, int action)
 	}
 	else
 	{
-		while (action < - 1)
+		while (action < -1)
 		{
 			ft_rr(&a, &b, 1);
 			action++;
@@ -60,15 +60,15 @@ int	remontada(t_list **a, t_list **b, int chearch)
 {
 	int		i;
 	t_list	*temp;
-	int 	action;
+	int		action;
 
 	i = 0;
 	temp = *a;
 	action = 0;
 	while (temp->next)
 	{
-		 if (temp->content == chearch)
-		 	break ;
+		if (temp->content == chearch)
+			break ;
 		i++;
 		temp = temp->next;
 	}
@@ -77,7 +77,7 @@ int	remontada(t_list **a, t_list **b, int chearch)
 
 int	remontada_2(t_list **a, t_list **b, int chearch, int action, int i)
 {
-	if ( i <= ft_lstsize(*a) / 2)
+	if (i <= ft_lstsize(*a) / 2)
 	{
 		while ((*a)->content != chearch)
 		{
