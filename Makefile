@@ -12,7 +12,8 @@ SRCS	=	make_line.c\
 			patern_line.c\
 			patern_line2.c\
 			patern_line3.c\
-			push_pattern.c\
+			push_in_sort_a.c\
+			push_pattern.c
 
 
 OBJS	=	$(SRCS:.c=.o)
