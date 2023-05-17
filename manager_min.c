@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   manager_min.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
+/*   By: mdiamant <mdiamant@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 15:32:07 by julien            #+#    #+#             */
-/*   Updated: 2023/04/21 15:05:55 by jsoulet          ###   ########.fr       */
+/*   Updated: 2023/04/26 10:13:53 by mdiamant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,9 @@ int	remontada(t_list **a, t_list **b, int chearch)
 {
 	int		i;
 	t_list	*temp;
-	int		action;
 
 	i = 0;
 	temp = *a;
-	action = 0;
 	while (temp->next)
 	{
 		if (temp->content == chearch)
@@ -72,11 +70,14 @@ int	remontada(t_list **a, t_list **b, int chearch)
 		i++;
 		temp = temp->next;
 	}
-	return (remontada_2(a, b, chearch, action, i));
+	return (remontada_2(a, b, chearch, i));
 }
 
-int	remontada_2(t_list **a, t_list **b, int chearch, int action, int i)
+int	remontada_2(t_list **a, t_list **b, int chearch, int i)
 {
+	int		action;
+
+	action = 0;
 	if (i <= ft_lstsize(*a) / 2)
 	{
 		while ((*a)->content != chearch)

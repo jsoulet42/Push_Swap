@@ -6,22 +6,23 @@
 /*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 11:40:22 by julien            #+#    #+#             */
-/*   Updated: 2023/04/24 09:04:00 by jsoulet          ###   ########.fr       */
+/*   Updated: 2023/05/08 17:53:11 by jsoulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	make_jtab(t_list *a, j_tab ***jtab, int *tabi, int tabm_len)
+void	make_jtab(t_list **a, j_tab ***jtab, int *tabi, int tabm_len)
 {
 	int	i;
 
 	i = 0;
-	mall_jtab(a, jtab, tabi_len(tabi), tabm_len);
+	mall_jtab(*a, jtab, tabi_len(tabi), tabm_len);
 	while (tabi[i] != -1)
 	{
 		(*jtab)[i]->index = tabi[i];
-		(*jtab)[i]->s_len = make_jtab2(a, (*jtab)[i], tabi[i]);
+		(*jtab)[i]->s_len = make_jtab2(*a, (*jtab)[i], tabi[i]);
+		(*jtab)[i]->a = *a;
 		i++;
 	}
 	while ((*jtab)[i])
@@ -80,7 +81,6 @@ int	make_jtab2(t_list *a, j_tab *jtab, int index)
 		}
 		a = a->next;
 	}
-	jtab->tabs[i] = 0;
 	return (i);
 }
 
@@ -97,19 +97,12 @@ int	tabi_len(int *tabi)
 void	mall_jtab3(j_tab **jtab, int len)
 {
 	(*jtab)->inclu = (int *)malloc(sizeof(int) * (len + 1));
-	if (!(*jtab)->inclu)
-		return ;
 	(*jtab)->exclu = (int *)malloc(sizeof(int) * (len + 1));
-	if (!(*jtab)->exclu)
-		return ;
 	(*jtab)->p_line = (int *)malloc(sizeof(int) * (len + 1));
-	if (!(*jtab)->p_line)
-		return ;
 	(*jtab)->pl_temp = (int *)malloc(sizeof(int) * (len + 1));
-	if (!(*jtab)->pl_temp)
-		return ;
 	(*jtab)->excl_2 = (int *)malloc(sizeof(int) * (len + 1));
-	if (!(*jtab)->excl_2)
+	if (!(*jtab)->pl_temp || !(*jtab)->p_line || !(*jtab)->exclu
+		|| !(*jtab)->inclu || !(*jtab)->excl_2)
 		return ;
 	while (len >= 0)
 	{

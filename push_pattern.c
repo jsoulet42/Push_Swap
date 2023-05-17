@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   push_pattern.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
+/*   By: mdiamant <mdiamant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 22:10:08 by jsoulet           #+#    #+#             */
-/*   Updated: 2023/04/21 16:07:27 by jsoulet          ###   ########.fr       */
+/*   Updated: 2023/04/26 09:16:17 by mdiamant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push_best_index(t_list **a,t_list **b, int index_best1, int index_best2)
+/*void	push_best_index(t_list **a, t_list **b, int index_best1, int index_best2)
 {
 	t_list	*tmp;
 
@@ -29,4 +29,4 @@ void	push_best_index(t_list **a,t_list **b, int index_best1, int index_best2)
 		else
 			ft_rr(&a, &b, 1);
 	}
-}
+}*/
