@@ -6,7 +6,7 @@
 /*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 14:07:20 by jsoulet           #+#    #+#             */
-/*   Updated: 2023/05/17 09:24:40 by jsoulet          ###   ########.fr       */
+/*   Updated: 2023/05/17 17:08:37 by jsoulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ int main(int argc, char **argv)
 		return (0);
 	}
 	sort_p1(jtab, a);
+	//print_tabj(jtab);
 	manager_friend(&a, &b, jtab);
 	/*printf("lst a = \n");
 	print_lst(a, -1, -1);
@@ -83,6 +84,9 @@ int main(int argc, char **argv)
 
 void print_lst(t_list *a, int index1, int index2) // a supprimer
 {
+	int i;
+
+	i = 0;
 	if (!a)
 		return;
 	while (a)
@@ -92,14 +96,16 @@ void print_lst(t_list *a, int index1, int index2) // a supprimer
 			couleur("31"); // vert
 		if (a->index == index2 && index1 != index2)
 			couleur("33"); // jaune
-		printf("content = %d ", a->content);
-		printf("index = %d\n", a->index);
+		ft_printf("n°%d = ", i);
+		ft_printf("content = %d ", a->content);
+		ft_printf("index = %d\n", a->index);
 		couleur("0"); // blanc
 		/*if(a->index == index1 && index1 == index2)
 			couleur("31"); // rouge*/
 		// printf("content = %d ", a->content);
 		// printf("index = %d\n", a->index);
 		a = a->next;
+		i++;
 	}
 	couleur("0"); // blanc
 
@@ -130,51 +136,52 @@ void print_tabj(j_tab **jtab) // a supprimer
 	{
 		j = 0;
 		len = jtab[i]->s_len;
-		ft_printf("jtab[%d]->tabs   = ", i);
-		while (len != 0)
-		{
-			ft_printf("%d ", jtab[i]->tabs[j]);
-			len--;
-			j++;
-		}
-		ft_printf("\njtab[%d]->index  = %d\n", i, jtab[i]->index);
-		ft_printf("jtab[%d]->s_len  = %d\n", i, jtab[i]->s_len);
-		h = 0;
-		ft_printf("jtab[%d]->exclu  =", i);
-		while (jtab[i]->exclu[h] != -1)
-		{
-			ft_printf(" %d;", jtab[i]->exclu[h]);
-			h++;
-		}
-		ft_printf("\n");
-		h = 0;
-		ft_printf("jtab[%d]->inclu  =", i);
-		while (jtab[i]->inclu[h] != -1)
-		{
-			ft_printf(" %d;", jtab[i]->inclu[h]);
-			h++;
-		}
-		ft_printf("\n");
-		h = 0;
-		ft_printf("jtab[%d]->p_line =", i);
+			ft_printf("jtab[%d]->tabs   = ", i);
+			while (len != 0)
+			{
+				ft_printf("%d ", jtab[i]->tabs[j]);
+				len--;
+				j++;
+			}
+			ft_printf("\njtab[%d]->index  = %d\n", i, jtab[i]->index);
+			ft_printf("jtab[%d]->s_len  = %d\n", i, jtab[i]->s_len);
+			h = 0;
+			ft_printf("jtab[%d]->exclu  =", i);
+			while (jtab[i]->exclu[h] != -1)
+			{
+				ft_printf(" %d;", jtab[i]->exclu[h]);
+				h++;
+			}
+			ft_printf("\n");
+			h = 0;
+			ft_printf("jtab[%d]->inclu  =", i);
+			while (jtab[i]->inclu[h] != -1)
+			{
+				ft_printf(" %d;", jtab[i]->inclu[h]);
+				h++;
+			}
+			ft_printf("\n");
+			h = 0;
+			ft_printf("jtab[%d]->p_line =", i);
 
-		p_lin_len = 0;
+			p_lin_len = 0;
 
-		while (jtab[i]->p_line[h] != -1)
-		{
-			couleur("31"); // rouge
-			// if (jtab[i]->p_line[h] != -1)
-			p_lin_len += jtab[jtab[i]->p_line[h]]->s_len;
+			while (jtab[i]->p_line[h] != -1)
+			{
+				couleur("31"); // rouge
+				// if (jtab[i]->p_line[h] != -1)
+				p_lin_len += jtab[jtab[i]->p_line[h]]->s_len;
 
-			if (jtab[i]->p_line[h] == -1)
-				couleur("33"); // jaune
-			ft_printf(" %d;", jtab[i]->p_line[h]);
-			couleur("0");
-			h++;
-		}
-		ft_printf("\np_line s_len    = %d\n", p_lin_len);
+				if (jtab[i]->p_line[h] == -1)
+					couleur("33"); // jaune
+				ft_printf(" %d;", jtab[i]->p_line[h]);
+				couleur("0");
+				h++;
+			}
+			ft_printf("\np_line s_len    = %d\n", p_lin_len);
+
+			ft_printf("----------------------\n");
 		i++;
-		ft_printf("----------------------\n");
 	}
 }
 
@@ -189,6 +196,8 @@ void ft_print_tab(int *tab)
 {
 	int i;
 
+	if (!tab)
+		return;
 	i = 0;
 	while (tab[i] != -1)
 	{

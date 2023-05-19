@@ -235,4 +235,8 @@ void	open_door(t_list **a, t_list **b, int pos_p);
 void	b_replace(t_list **a, t_list **b, int index);
 
 
+int		min_nb(j_tab **t2, int i);
+
+int		next_min(j_tab **t2, int i, int nb);
+
 #endif

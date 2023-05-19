@@ -6,7 +6,7 @@
 /*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 10:23:32 by jsoulet           #+#    #+#             */
-/*   Updated: 2023/05/16 18:03:10 by jsoulet          ###   ########.fr       */
+/*   Updated: 2023/05/17 18:16:29 by jsoulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,10 @@ int sort_p_suit(t_list ***b, int *tabs, int j, int l);
 int found_len_max(j_tab **jtab);
 void sort_p__len_3(t_list ***a, t_list ***b);
 
-
+int *quart(t_list *b, int len);
+void	quart2(t_list *b, int i, int index_tmp, int **tab_quart);
+int quart_tab_len(t_list *b);
+int quart_tab_len2(t_list *b);
 
 
 int g_sort_p = 0;
@@ -33,7 +36,7 @@ void sort_p(t_list ***a, t_list ***b, j_tab **jtab, int i)
 	int l;
 	int k;
 
-	j = jtab[i]->s_len -1;
+	j = jtab[i]->s_len - 1;
 	l = 0;
 	while (jtab[i]->s_len > 0)
 	{
@@ -151,29 +154,150 @@ int verif_rotate2(t_list *b, int i, int k)
 
 void choice_p(t_list **a, t_list **b, j_tab **jtab)
 {
-	int	j;
-	int	index_max;
+	int i;
+	int *tab_quart;
 
-	j = jtab_len(jtab);
-	index_max = -1;
-
-	while (j > 0)
+	i = 0;
+	tab_quart = quart(*b, jtab_len(jtab));
+	//ft_printf("tab_quart = ");
+	//ft_print_tab(tab_quart);
+	while (i < (tab_len(tab_quart) / 2))
 	{
-		//index_max = found_len_max(jtab);
-		index_max = found_index_max(*b);
-		b_replace(a, b, index_max);
+		b_replace(a, b, tab_quart[i]);
 		open_door(a, b, (*b)->index);
-		if (jtab[found_index(jtab, index_max)]->s_len == 3)
-		{
-			jtab[found_index(jtab, index_max)]->s_len = 0;
-			sort_p__len_3(&a, &b);
-		}
-		else
-			sort_p(&a, &b, jtab, found_index(jtab, (*b)->index));
-		j--;
+		sort_p(&a, &b, jtab, found_index(jtab,tab_quart[i++]));
 	}
+	i = tab_len (tab_quart);
+	while (--i >= (tab_len(tab_quart) / 2))
+	{
+		b_replace(a, b, tab_quart[i]);
+		open_door(a, b, (*b)->index);
+		sort_p(&a, &b, jtab, found_index(jtab,tab_quart[i]));
+	}
+	i = jtab_len(jtab) - tab_len(tab_quart);
+	while (i-- > 0)
+	{
+		if (!*b)
+		{
+			ft_printf("error in choice_p\n");
+			free(tab_quart);
+			return ;
+		}
+		b_replace(a, b, found_index_max(*b));
+		open_door(a, b, (*b)->index);
+		sort_p(&a, &b, jtab, found_index(jtab, (*b)->index));
+	}
+	free(tab_quart);
 }
 
+int *quart(t_list *b, int len)
+{
+	int		*tab_quart;
+	int		i;
+	int 	j;
+	int		index_tmp;
+	t_list	*tmp;
+
+	i = 0;
+	j = 0;
+	tmp = b;
+	tab_quart = (int *)malloc(sizeof(int) * len);
+//	ft_printf("quart_tab_len = %d\n", quart_tab_len(b));
+	while (j++ < ft_lstsize(b) / 7)
+	{
+		if (tmp->index != index_tmp)
+		{
+			index_tmp = tmp->index;
+			tab_quart[i++] = tmp->index;
+		}
+		tmp = tmp->next;
+	}
+
+	tab_quart[i] = -1;
+
+	//quart2(b, i, index_tmp, &tab_quart);
+
+	return (tab_quart);
+}
+void	quart2(t_list *tmp, int i, int index_tmp, int **tab_quart)
+{
+	int j;
+	int len;
+	int tmp_index2;
+	j = 0;
+
+	len = ft_lstsize(tmp);
+	while (j < (len / 10) * 9)
+	{
+		tmp = tmp->next;
+		j++;
+	}
+	tmp_index2 = tmp->index;
+	while (tmp_index2 == tmp->index)
+		tmp = tmp->next;
+	while (tmp)
+	{
+		if (tmp->index != index_tmp)
+		{
+			index_tmp = tmp->index;
+			(*tab_quart)[i++] = tmp->index;
+		}
+		tmp = tmp->next;
+	}
+	(*tab_quart)[i] = -1;
+}
+
+
+/*int quart_tab_len(t_list *b)
+{
+	int		len;
+	int		i;
+	int		res;
+	int		index_tmp;
+	t_list	*tmp;
+
+	i = 0;
+	res = 1;
+	len = ft_lstsize(b);
+	tmp = b;
+	index_tmp = b->index;
+	while (i++ < len / 4)
+	{
+		if (tmp->index != index_tmp)
+		{
+			index_tmp = tmp->index;
+			res++;
+		}
+		tmp = tmp->next;
+	}
+	return (res + quart_tab_len2(b) - 1);
+}
+
+int quart_tab_len2(t_list *b)
+{
+	int		res;
+	int		index_tmp;
+	int j;
+
+	j = 0;
+	res = 1;
+	index_tmp = b->index;
+	while (j++ < ft_lstsize(b) / 4 * 3)
+		b = b->next;
+
+
+	while (b)
+	{
+		if (b->index != index_tmp)
+		{
+			index_tmp = b->index;
+			res++;
+		}
+		b = b->next;
+	}
+	return (res);
+}
+*/
 
 void sort_p__len_3(t_list ***a, t_list ***b)
 {

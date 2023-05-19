@@ -6,14 +6,13 @@
 /*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 23:51:45 by jsoulet           #+#    #+#             */
-/*   Updated: 2023/05/12 16:54:33 by jsoulet          ###   ########.fr       */
+/*   Updated: 2023/05/17 09:52:00 by jsoulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int min_nb(j_tab **t2, int i);
-int next_nb(j_tab **t2, int i, int nb);
+
 void copy_tabs(int *src, int *dest, int len);
 
 
@@ -82,7 +81,7 @@ void sort_p1(j_tab **t2, t_list *a)
 		tabs_tmp[0] = min_nb(t2, i);
 		//t2[i]->inclu[j] = min_nb(t2, i);
 		while (++j < t2[i]->s_len)
-			tabs_tmp[j] = next_nb(t2, i, tabs_tmp[j - 1]);
+			tabs_tmp[j] = next_min(t2, i, tabs_tmp[j - 1]);
 		//tabs_tmp[j] = next_nb(t2, i, t2[i]->inclu[j - 1]);
 		copy_tabs(tabs_tmp, t2[i]->tabs, t2[i]->s_len);
 		i++;
@@ -100,7 +99,7 @@ void copy_tabs(int *src, int *dest, int len)
 	while (++i < len)
 		dest[i] = src[i];
 }
-int next_nb(j_tab **t2, int i, int nb)
+int next_min(j_tab **t2, int i, int nb)
 {
 	int j;
 	int tmp1;

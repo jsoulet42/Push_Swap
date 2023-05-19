@@ -6,7 +6,7 @@
 /*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 12:50:05 by jsoulet           #+#    #+#             */
-/*   Updated: 2023/05/17 09:28:42 by jsoulet          ###   ########.fr       */
+/*   Updated: 2023/05/17 10:58:18 by jsoulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,6 +117,7 @@ void	manager_friend(t_list **a, t_list **b, j_tab **jtab)
 		{
 
 			print_tabj(jtab);
+			ft_printf("\nmanager_friend\n");
 			exit (0);
 		}
 
