@@ -6,23 +6,36 @@
 /*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 10:26:47 by jsoulet           #+#    #+#             */
-/*   Updated: 2023/04/20 15:28:26 by jsoulet          ###   ########.fr       */
+/*   Updated: 2023/05/23 11:18:33 by jsoulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	found_conditions(int argc, char **argv)
+void	found_conditions(int argc, char **argv, int on, int i)
 {
 	if (argc == 1)
-		return (1);
+	{
+		i = 1;
+	}
+	if (argc == 2 && on == 1 && ft_atoi(argv[0]) > ft_atoi(argv[1]))
+	{
+		free_argv(argv, on);
+		ft_printf("sa\n");
+		exit(0);
+	}
 	if (found_double(argc, argv) == 1)
-		return (1);
+		i = 1;
 	if (found_char(argc, argv) == 1)
-		return (1);
+		i = 1;
 	if (found_int(argc, argv) == 1)
-		return (1);
-	return (0);
+		i = 1;
+	if (i == 1)
+	{
+		free_argv(argv, on);
+		ft_printf("Error\n");
+		exit(0);
+	}
 }
 
 int	found_double(int argc, char **argv)

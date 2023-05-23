@@ -6,24 +6,19 @@
 /*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 23:51:45 by jsoulet           #+#    #+#             */
-/*   Updated: 2023/05/17 09:52:00 by jsoulet          ###   ########.fr       */
+/*   Updated: 2023/05/23 09:40:21 by jsoulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-void copy_tabs(int *src, int *dest, int len);
-
-
 void	a_replace(t_list **a, t_list **b, int index)
 {
-	int	i;
+	int		i;
 	t_list	*tmp;
 
 	i = 0;
 	tmp = *a;
-
 	while (tmp->index != index)
 	{
 		tmp = tmp->next;
@@ -39,13 +34,12 @@ void	a_replace(t_list **a, t_list **b, int index)
 
 void	b_replace(t_list **a, t_list **b, int index)
 {
-	int	i;
-	int j;
+	int		i;
+	int		j;
 	t_list	*tmp;
 
 	i = 0;
 	tmp = *b;
-
 	while (tmp->index != index)
 	{
 		tmp = tmp->next;
@@ -54,7 +48,6 @@ void	b_replace(t_list **a, t_list **b, int index)
 	if (i < ft_lstsize(*b) / 2)
 		while ((*b)->index != index)
 			ft_rr(&a, &b, 2);
-
 	else if (i >= ft_lstsize(*b) / 2)
 	{
 		j = ft_lstsize(*b) - i;
@@ -63,7 +56,7 @@ void	b_replace(t_list **a, t_list **b, int index)
 	}
 }
 
-void sort_p1(j_tab **t2, t_list *a)
+void	sort_p1(j_tab **t2, t_list *a)
 {
 	int	i;
 	int	j;
@@ -79,30 +72,18 @@ void sort_p1(j_tab **t2, t_list *a)
 	{
 		j = 0;
 		tabs_tmp[0] = min_nb(t2, i);
-		//t2[i]->inclu[j] = min_nb(t2, i);
 		while (++j < t2[i]->s_len)
 			tabs_tmp[j] = next_min(t2, i, tabs_tmp[j - 1]);
-		//tabs_tmp[j] = next_nb(t2, i, t2[i]->inclu[j - 1]);
 		copy_tabs(tabs_tmp, t2[i]->tabs, t2[i]->s_len);
 		i++;
 	}
 	free(tabs_tmp);
 }
 
-void copy_tabs(int *src, int *dest, int len)
+int	next_min(j_tab **t2, int i, int nb)
 {
-	int i;
-
-	if (!src || !dest)
-		return ;
-	i = -1;
-	while (++i < len)
-		dest[i] = src[i];
-}
-int next_min(j_tab **t2, int i, int nb)
-{
-	int j;
-	int tmp1;
+	int	j;
+	int	tmp1;
 
 	j = -1;
 	tmp1 = nb;
@@ -111,7 +92,7 @@ int next_min(j_tab **t2, int i, int nb)
 		if (t2[i]->tabs[j] > nb)
 		{
 			tmp1 = t2[i]->tabs[j];
-			break;
+			break ;
 		}
 	}
 	while (j < t2[i]->s_len)
@@ -123,10 +104,10 @@ int next_min(j_tab **t2, int i, int nb)
 	return (tmp1);
 }
 
-int min_nb(j_tab **t2, int i)
+int	min_nb(j_tab **t2, int i)
 {
-	int tmp1;
-	int j;
+	int	tmp1;
+	int	j;
 
 	tmp1 = t2[i]->tabs[0];
 	j = 0;
@@ -138,11 +119,3 @@ int min_nb(j_tab **t2, int i)
 	}
 	return (tmp1);
 }
-
-
-
-
-
-
-
-

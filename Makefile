@@ -1,6 +1,8 @@
 SRCS	=	make_line.c\
 			make_index.c\
 			instructions.c\
+			instructions_2.c\
+			instructions_3.c\
 			main.c\
 			manager_min.c\
 			free_all.c\
@@ -8,12 +10,21 @@ SRCS	=	make_line.c\
 			manager_tab2.c \
 			conditions.c\
 			push_in_b.c\
+			push_in_b_2.c\
 			push_in_a.c\
+			push_in_a_2.c\
 			patern_line.c\
 			patern_line2.c\
 			patern_line3.c\
+			patern_line4.c\
 			push_in_sort_a.c\
-			push_pattern.c
+			push_in_sort_a_2.c\
+			push_in_sort_a_3.c\
+			push_pattern.c\
+			low_input_1.c\
+			low_input_2.c\
+			low_input_3.c\
+			utils_1.c
 
 
 OBJS	=	$(SRCS:.c=.o)

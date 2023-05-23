@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   manager_min.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdiamant <mdiamant@student.42perpignan.    +#+  +:+       +#+        */
+/*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 15:32:07 by julien            #+#    #+#             */
-/*   Updated: 2023/04/26 10:13:53 by mdiamant         ###   ########.fr       */
+/*   Updated: 2023/05/22 23:42:21 by jsoulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	replace_a(t_list **a, t_list **b, int action)
 	ft_p(&a, &b, 2);
 }
 
-int	remontada(t_list **a, t_list **b, int chearch)
+int	rmtada(t_list **a, t_list **b, int chearch)
 {
 	int		i;
 	t_list	*temp;

@@ -3,34 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   free_all.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdiamant <mdiamant@student.42perpignan.    +#+  +:+       +#+        */
+/*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 12:20:33 by julien            #+#    #+#             */
-/*   Updated: 2023/04/29 16:06:13 by mdiamant         ###   ########.fr       */
+/*   Updated: 2023/05/23 08:05:03 by jsoulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	clear_tabs(t_tab **tabm, int pos_line, int offset)
+void	clear_tabs(t_tab **tabm, t_tab **pos_line, int offset)
 {
 	int	i;
 
 	i = 0;
 	if (offset == 1)
 	{
-		free(tabm[pos_line]->tabs);
-		free(tabm[pos_line]);
+		free((*pos_line)->tabs);
+		free(*pos_line);
 		free (tabm);
 		return ;
 	}
-	while (tabm[i])
+	while (tabm[i] != *pos_line)
 	{
-		if (pos_line != i)
-		{
-			free(tabm[i]->tabs);
-			free(tabm[i]);
-		}
+		free(tabm[i]->tabs);
+		free(tabm[i]);
 		i++;
 	}
 }

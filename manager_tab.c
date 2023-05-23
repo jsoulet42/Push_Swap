@@ -6,7 +6,7 @@
 /*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 12:11:18 by julien            #+#    #+#             */
-/*   Updated: 2023/04/20 15:14:55 by jsoulet          ###   ########.fr       */
+/*   Updated: 2023/05/22 23:23:18 by jsoulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,19 +45,21 @@ int	*index_tab(t_list *a, t_tab *tabm)
 	int	*tabi;
 	int	i;
 
-	tabi = malloc(sizeof(int) * (tabm->lens + 1));
-	if (!tabi || tabm->lens <= 1)
+	i = 0;
+	if (tabm->lens <= 1)
 		return (0);
+	tabi = (int *)malloc(sizeof(int) * (tabm->lens + 1));
+	if (!tabi)
+		return (0);
+	while (i < tabm->lens)
+		tabi[i++] = -1;
 	i = 0;
 	while (a)
 	{
 		if (a->index % 2 == 1)
 		{
 			if (in_tabi(a, tabm, tabi) == 0)
-			{
-				tabi[i] = a->index;
-				i++;
-			}
+				tabi[i++] = a->index;
 		}
 		a = a->next;
 	}
@@ -70,6 +72,8 @@ int	in_tabi(t_list *a, t_tab *tabm, int *tabi)
 	int	i;
 
 	i = 0;
+	if (!a || !tabi)
+		return (0);
 	while (i < tabm->lens)
 	{
 		if (a->index == tabi[i])
