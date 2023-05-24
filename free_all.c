@@ -6,7 +6,7 @@
 /*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 12:20:33 by julien            #+#    #+#             */
-/*   Updated: 2023/05/23 08:05:03 by jsoulet          ###   ########.fr       */
+/*   Updated: 2023/05/24 12:56:29 by jsoulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,22 @@ void	clear_tabs(t_tab **tabm, t_tab **pos_line, int offset)
 		free (tabm);
 		return ;
 	}
-	while (tabm[i] != *pos_line)
+	while (tabm[i] != NULL)
 	{
+		if (tabm[i] == *pos_line)
+		{
+			if (tabm[i + 1] == NULL)
+				break ;
+			else
+				i++;
+		}
 		free(tabm[i]->tabs);
 		free(tabm[i]);
 		i++;
 	}
 }
 
-void	clear_jtab(j_tab **jtab)
+void	clear_jtab(t_jtb **jtab)
 {
 	int	i;
 

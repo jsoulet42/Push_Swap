@@ -6,13 +6,13 @@
 /*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 11:40:22 by julien            #+#    #+#             */
-/*   Updated: 2023/05/23 09:12:40 by jsoulet          ###   ########.fr       */
+/*   Updated: 2023/05/24 12:52:50 by jsoulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	make_jtab(t_list **a, j_tab ***jtab, int *tabi, int tabm_len)
+void	make_jtab(t_list **a, t_jtb ***jtab, int *tabi, int tabm_len)
 {
 	int	i;
 
@@ -41,22 +41,22 @@ void	make_jtab(t_list **a, j_tab ***jtab, int *tabi, int tabm_len)
 	}
 }
 
-void	mall_jtab(t_list *a, j_tab ***jtab_real, int t_len, int tabm_len)
+void	mall_jtab(t_list *a, t_jtb ***jtab_real, int t_len, int tabm_len)
 {
 	int		i;
-	j_tab	**jtab;
+	t_jtb	**jtab;
 
 	i = 0;
-	jtab = (j_tab **)malloc(sizeof(j_tab *) * (t_len + 1));
+	jtab = (t_jtb **)malloc(sizeof(t_jtb *) * (t_len + 1));
 	if (!jtab)
 	{
-		ft_printf("Error j_tab\n");
+		ft_printf("Error t_jtb\n");
 		exit(0);
 	}
 	*jtab_real = jtab;
 	while (i < t_len)
 	{
-		jtab[i] = (j_tab *)malloc(sizeof(j_tab) * (t_len + 1));
+		jtab[i] = (t_jtb *)malloc(sizeof(t_jtb) * (t_len + 1));
 		if (!jtab[i])
 			return ;
 		jtab[i]->tabs = (int *)malloc(sizeof(int) * ft_lstsize(a) - tabm_len);
@@ -70,7 +70,7 @@ void	mall_jtab(t_list *a, j_tab ***jtab_real, int t_len, int tabm_len)
 	jtab[i] = NULL;
 }
 
-int	make_jtab2(t_list *a, j_tab *jtab, int index)
+int	make_jtab2(t_list *a, t_jtb *jtab, int index)
 {
 	int	i;
 
@@ -97,7 +97,7 @@ int	tabi_len(int *tabi)
 	return (i);
 }
 
-void	mall_jtab3(j_tab **jtab, int len)
+void	mall_jtab3(t_jtb **jtab, int len)
 {
 	(*jtab)->inclu = (int *)malloc(sizeof(int) * (len + 1));
 	(*jtab)->exclu = (int *)malloc(sizeof(int) * (len + 1));

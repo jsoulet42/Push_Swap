@@ -6,15 +6,15 @@
 /*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 12:50:05 by jsoulet           #+#    #+#             */
-/*   Updated: 2023/05/23 09:38:20 by jsoulet          ###   ########.fr       */
+/*   Updated: 2023/05/24 12:55:19 by jsoulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 void	clear_mtab(m_tab **mtab);
-int		maj_m_tab(j_tab **jtab, m_tab **mtab);
-void	maj_m_tab_2(j_tab **jtab, m_tab **mtab);
+int		maj_m_tab(t_jtb **jtab, m_tab **mtab);
+void	maj_m_tab_2(t_jtb **jtab, m_tab **mtab);
 
 int	verif(t_list *a)
 {
@@ -75,7 +75,7 @@ void	push_in_b_suit2(t_list ***a, t_list ***b, int id1, int id2)
 	}
 }
 
-void	manager_friend(t_list **a, t_list **b, j_tab **jtab)
+void	manager_friend(t_list **a, t_list **b, t_jtb **jtab)
 {
 	m_tab	*mtab;
 	int		pib;

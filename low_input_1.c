@@ -6,13 +6,11 @@
 /*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 10:08:23 by jsoulet           #+#    #+#             */
-/*   Updated: 2023/05/23 11:14:15 by jsoulet          ###   ########.fr       */
+/*   Updated: 2023/05/24 12:40:13 by jsoulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	ft_low_input_2(int argc, char **argv, int on);
 
 void	ft_low_input(int argc, char **argv, int on)
 {
@@ -51,6 +49,11 @@ void	ft_five_arg(char **argv, int on)
 	a = NULL;
 	b = NULL;
 	creat_list(&a, argv, on);
+	if (verif_order_input(a) == 0)
+	{
+		ft_lstclear(&a);
+		return ;
+	}
 	if (ft_five_arg_2(&a, &b) == 1)
 		ft_five_arg_3(&a, &b);
 	ft_three_arg_lst(&a);

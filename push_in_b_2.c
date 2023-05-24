@@ -6,13 +6,13 @@
 /*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 09:37:14 by jsoulet           #+#    #+#             */
-/*   Updated: 2023/05/23 09:37:55 by jsoulet          ###   ########.fr       */
+/*   Updated: 2023/05/24 13:02:03 by jsoulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	clear_mtab(m_tab **mtab)
+void	clear_mtab(t_mtb **mtab)
 {
 	if ((*mtab)->current1)
 		free((*mtab)->current1);
@@ -21,7 +21,7 @@ void	clear_mtab(m_tab **mtab)
 	free(*mtab);
 }
 
-int	maj_m_tab(j_tab **jtab, m_tab **mtab)
+int	maj_m_tab(t_jtb **jtab, t_mtb **mtab)
 {
 	int	*pos_pline;
 
@@ -45,7 +45,7 @@ int	maj_m_tab(j_tab **jtab, m_tab **mtab)
 	return (0);
 }
 
-void	maj_m_tab_2(j_tab **jtab, m_tab **mtab)
+void	maj_m_tab_2(t_jtb **jtab, t_mtb **mtab)
 {
 	int	*pos_pline;
 
@@ -63,12 +63,12 @@ void	maj_m_tab_2(j_tab **jtab, m_tab **mtab)
 	rest_s_len(jtab, pos_pline);
 }
 
-m_tab	*make_mtab(j_tab **jtab, t_list *a)
+t_mtb	*make_mtab(t_jtb **jtab, t_list *a)
 {
-	m_tab	*mtab;
+	t_mtb	*mtab;
 	int		*pline;
 
-	mtab = (m_tab *)malloc(sizeof(m_tab));
+	mtab = (t_mtb *)malloc(sizeof(t_mtb));
 	if (!mtab)
 		return (NULL);
 	fill_exclu(a, jtab, NULL);

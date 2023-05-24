@@ -6,13 +6,13 @@
 /*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 16:19:38 by jsoulet           #+#    #+#             */
-/*   Updated: 2023/05/23 09:44:00 by jsoulet          ###   ########.fr       */
+/*   Updated: 2023/05/24 12:54:42 by jsoulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	best_p_line(j_tab **jtab)
+int	best_p_line(t_jtb **jtab)
 {
 	int	i;
 	int	j;
@@ -40,7 +40,7 @@ int	best_p_line(j_tab **jtab)
 	return (k);
 }
 
-void	rest_s_len(j_tab **jtab, int *pos_pline)
+void	rest_s_len(t_jtb **jtab, int *pos_pline)
 {
 	int	i;
 
@@ -59,7 +59,7 @@ void	rest_s_len(j_tab **jtab, int *pos_pline)
 	}
 }
 
-int	p_line_len(j_tab **jtab, int *p_line)
+int	p_line_len(t_jtb **jtab, int *p_line)
 {
 	int	i;
 	int	len;
@@ -76,7 +76,7 @@ int	p_line_len(j_tab **jtab, int *p_line)
 	return (len);
 }
 
-void	copy_pl(j_tab **jtab, int *pline_current, int dest)
+void	copy_pl(t_jtb **jtab, int *pline_current, int dest)
 {
 	int	i;
 	int	j;
@@ -102,7 +102,7 @@ void	copy_pl(j_tab **jtab, int *pline_current, int dest)
 	}
 }
 
-void	replace_s_len(j_tab **jtab, t_list *b)
+void	replace_s_len(t_jtb **jtab, t_list *b)
 {
 	int		i;
 	int		j;

@@ -6,13 +6,13 @@
 /*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 10:23:32 by jsoulet           #+#    #+#             */
-/*   Updated: 2023/05/23 09:35:33 by jsoulet          ###   ########.fr       */
+/*   Updated: 2023/05/24 12:56:35 by jsoulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_p(t_list ***a, t_list ***b, j_tab **jtab, int i)
+void	sort_p(t_list ***a, t_list ***b, t_jtb **jtab, int i)
 {
 	int	j;
 	int	l;

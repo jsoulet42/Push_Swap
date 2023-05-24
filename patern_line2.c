@@ -6,13 +6,13 @@
 /*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 08:00:44 by jsoulet           #+#    #+#             */
-/*   Updated: 2023/05/23 09:45:06 by jsoulet          ###   ########.fr       */
+/*   Updated: 2023/05/24 12:56:46 by jsoulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	*make_p_line(j_tab **jtab)
+int	*make_p_line(t_jtb **jtab)
 {
 	int	i;
 	int	j;
@@ -38,7 +38,7 @@ int	*make_p_line(j_tab **jtab)
 	return (jtab[best_pl]->p_line);
 }
 
-int	*m_p_line(j_tab **jtab, int current, int next, int step)
+int	*m_p_line(t_jtb **jtab, int current, int next, int step)
 {
 	int	i;
 	int	tmp;
@@ -58,7 +58,7 @@ int	*m_p_line(j_tab **jtab, int current, int next, int step)
 	return (best_s_len(jtab, current));
 }
 
-int	*best_s_len(j_tab **jtab, int current)
+int	*best_s_len(t_jtb **jtab, int current)
 {
 	int	len_pl;
 	int	len_pl_temp;
@@ -85,7 +85,7 @@ int	*best_s_len(j_tab **jtab, int current)
 }
 
 // division
-int	*chx_best_pl(j_tab **t, int cr)
+int	*chx_best_pl(t_jtb **t, int cr)
 {
 	int		i;
 	int		j;

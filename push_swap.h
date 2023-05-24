@@ -1,7 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/24 12:42:08 by jsoulet           #+#    #+#             */
+/*   Updated: 2023/05/24 13:02:56 by jsoulet          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <stdio.h> // a virer avant de push
 # include <stdlib.h>
 # include <sys/types.h>
 # include <unistd.h>
@@ -10,42 +21,41 @@
 
 typedef struct s_tab
 {
-	int *tabs;
-	int lens;
+	int	*tabs;
+	int	lens;
 }			t_tab;
 
-typedef  struct k_tab
+typedef struct k_tab
 {
-    int	*tabs;
-	int	*p_line;
-	int	*pl_temp;
-	int	*exclu;
-	int	*inclu;
-	int	*excl_2;
-	//int *tab_f;
-	int	s_len;
-	int	index;
-	int	pl_len;
-	t_list *a;
-}			j_tab;
+	int		*tabs;
+	int		*p_line;
+	int		*pl_temp;
+	int		*exclu;
+	int		*inclu;
+	int		*excl_2;
+	int		s_len;
+	int		index;
+	int		pl_len;
+	t_list	*a;
+}			t_jtb;
 
 typedef struct l_tab
 {
-	int *current1;
-	int *current2;
-	int current1_len;
-	int current2_len;
-}			m_tab;
+	int	*current1;
+	int	*current2;
+	int	current1_len;
+	int	current2_len;
+}			t_mtb;
 
 typedef struct s_opti
 {
-	int rra;
-	int rrb;
-	int ra;
-	int rb;
-}			r_opti;
+	int	rra;
+	int	rrb;
+	int	ra;
+	int	rb;
+}			t_ropti;
 
-//---------------------------- instructions -----------------------------------//
+//---------------------------- instructions ----------------------------------//
 
 void	sa(t_list **a);
 
@@ -69,18 +79,17 @@ void	ft_lstprint2(t_list *list);
 
 void	ft_lstprint2_next(int instruction);
 
-void	ft_print_opti_rr(r_opti *opti, int bool);
+void	ft_print_opti_rr(t_ropti *opti, int bool);
 
-void	ft_print_opti_rrr(r_opti *opti, int bool);
+void	ft_print_opti_rrr(t_ropti *opti, int bool);
 
-void	make_opti(r_opti *opti);
-
+void	make_opti(t_ropti *opti);
 
 //----------------------------- manager_tab ----------------------------------//
 
 t_tab	**make_tab(t_list *a);
 
-int		*index_tab(t_list *a,t_tab *tabm);
+int		*index_tab(t_list *a, t_tab *tabm);
 
 int		in_tabi(t_list *a, t_tab *tabm, int *tabi);
 
@@ -88,16 +97,15 @@ int		in_tab(t_list *a, t_tab *tabm);
 
 //----------------------------- manager_tab2 ---------------------------------//
 
-void	make_jtab(t_list **a, j_tab ***jtab, int *tabi, int t_len);
+void	make_jtab(t_list **a, t_jtb ***jtab, int *tabi, int t_len);
 
 int		tabi_len(int *tabi);
 
-void	mall_jtab(t_list *a, j_tab ***jtab, int len, int t_len);
+void	mall_jtab(t_list *a, t_jtb ***jtab, int len, int t_len);
 
-int		make_jtab2(t_list *a, j_tab *jtab, int index);
+int		make_jtab2(t_list *a, t_jtb *jtab, int index);
 
-void	mall_jtab3(j_tab **jtab, int len);
-
+void	mall_jtab3(t_jtb **jtab, int len);
 
 //----------------------------- manager_min ---------------------------------//
 
@@ -113,7 +121,7 @@ int		rmtada(t_list **a, t_list **b, int chearch);
 
 void	clear_tabs(t_tab **tabm, t_tab **pos_line, int offset);
 
-void	clear_jtab(j_tab **jtab);
+void	clear_jtab(t_jtb **jtab);
 
 void	clear_all(t_list *a, t_tab **tabm, t_tab **pos_line, int *tabi);
 
@@ -139,11 +147,11 @@ void	chearch_line(t_tab **struc, int i);
 
 void	creat_list(t_list **a, char **argv, int on);
 
-void	push_swap (char **argv, int on);
+void	push_swap(char **argv, int on);
 
 //------------------------------ push_in_b.c ---------------------------------//
 
-void	manager_friend(t_list **a, t_list **b, j_tab **jtab);
+void	manager_friend(t_list **a, t_list **b, t_jtb **jtab);
 
 int		push_in_b(t_list ***a, t_list ***b, int *best1, int *best2);
 
@@ -153,7 +161,7 @@ int		verif(t_list *a);
 
 void	push_in_b_suit2(t_list ***a, t_list ***b, int id1, int id2);
 
-m_tab	*make_mtab(j_tab **jtab, t_list *a);
+t_mtb	*make_mtab(t_jtb **jtab, t_list *a);
 
 //------------------------------ conditions ----------------------------------//
 
@@ -165,27 +173,26 @@ int		found_int(int argc, char **argv);
 
 void	found_conditions(int argc, char **argv, int on, int i);
 
-
 //------------------------------ push_in_a ----------------------------------//
 
 void	a_replace(t_list **a, t_list **b, int index);
 
-void copy_tabs(int *src, int *dest, int len);
+void	copy_tabs(int *src, int *dest, int len);
 
 //------------------------------- pattern_line -------------------------------//
 int		verif_exclu(int *exclu, int index);
 
-int		found_first_in_a(j_tab *jtab, t_list *a);
+int		found_first_in_a(t_jtb *jtab, t_list *a);
 
-int		found_index(j_tab **jtab, int index);
+int		found_index(t_jtb **jtab, int index);
 
-void	fill_exclu(t_list *a, j_tab **jtab, int *p_line);
+void	fill_exclu(t_list *a, t_jtb **jtab, int *p_line);
 
-void	fill_inclu(j_tab **t);
+void	fill_inclu(t_jtb **t);
 
 //------------------------------- patern_line2 -------------------------------//
 
-int		*make_p_line(j_tab **jtab);
+int		*make_p_line(t_jtb **jtab);
 
 int		tab_len(int *tab);
 
@@ -193,59 +200,46 @@ void	clear_pl_temp(int *pl_temp, int i);
 
 int		sch_int(int *tab, int nb);
 
-int		*m_p_line(j_tab **jtab, int current, int next, int step);
+int		*m_p_line(t_jtb **jtab, int current, int next, int step);
 
-int		*best_s_len(j_tab **jtab, int current);
+int		*best_s_len(t_jtb **jtab, int current);
 
-int		*chx_best_pl(j_tab **jtab, int current);
+int		*chx_best_pl(t_jtb **jtab, int current);
 
-int		jtab_len(j_tab **jtab);
+int		jtab_len(t_jtb **jtab);
 
-int		*chx_best_pl2(int *pl_temp , int *p_line, int i);
-
+int		*chx_best_pl2(int *pl_temp, int *p_line, int i);
 
 //------------------------------- patern_line3 -------------------------------//
 
-int		*copie_current(j_tab **jtab, int *current);
+int		*copie_current(t_jtb **jtab, int *current);
 
-int		p_line_len(j_tab **jtab, int *p_line);
+int		p_line_len(t_jtb **jtab, int *p_line);
 
-int		best_p_line(j_tab **jtab);
+int		best_p_line(t_jtb **jtab);
 
-void	copy_pl(j_tab ** jtab, int *src, int dest);
+void	copy_pl(t_jtb **jtab, int *src, int dest);
 
-void	rest_s_len(j_tab **jtab, int *pos_p_line);
-
-void	sort_p1(j_tab **t2, t_list *a);
-
-void	choice_p(t_list **a, t_list **b, j_tab **jtab, int i);
-
-void	replace_s_len(j_tab **jtab, t_list *b);
-
+void	rest_s_len(t_jtb **jtab, int *pos_p_line);
+void	sort_p1(t_jtb **t2, t_list *a);
+void	choice_p(t_list **a, t_list **b, t_jtb **jtab, int i);
+void	replace_s_len(t_jtb **jtab, t_list *b);
 void	open_door(t_list **a, t_list **b, int pos_p);
-
 void	b_replace(t_list **a, t_list **b, int index);
-
-
-int		min_nb(j_tab **t2, int i);
-
-int		next_min(j_tab **t2, int i, int nb);
-
-
-void	sort_p(t_list ***a, t_list ***b, j_tab **jtab, int i);
+int		min_nb(t_jtb **t2, int i);
+int		next_min(t_jtb **t2, int i, int nb);
+void	sort_p(t_list ***a, t_list ***b, t_jtb **jtab, int i);
 int		last_rotate(t_list **b, int *tabs, int j, int l);
 int		verif_rotate(t_list *b, int *tabs, int j, int l);
 int		verif_rotate2(t_list *b, int i, int k);
 int		verif_idx_a(t_list *a, int pos_p);
 int		found_index_max(t_list *b);
 int		sort_p_suit(t_list ***b, int *tabs, int j, int l);
-int		found_len_max(j_tab **jtab);
+int		found_len_max(t_jtb **jtab);
 int		*quart(t_list *b, int len);
 void	quart2(t_list *b, int i, int index_tmp, int **tab_quart);
 int		choice_between_500_or_100(t_list *b, int bool);
 void	free_argv(char **argv, int on);
-
-
 void	ft_low_input(int argc, char **argv,	int on);
 void	ft_three_arg(char **argv);
 void	ft_four_arg(char **argv);
@@ -259,16 +253,15 @@ void	ft_five_arg_3(t_list **a, t_list **b);
 void	ft_five_arg_end(t_list **a, t_list **b);
 void	ft_tabi_empty(t_list **a, t_list **b);
 void	verif_end(t_list *a);
-void	make_tabi_jtab(t_list **a, t_list **b,t_tab **tabm, t_tab *line);
+void	make_tabi_jtab(t_list **a, t_list **b, t_tab **tabm, t_tab *line);
+void	choice_p_2(t_list **a, t_list **b, t_jtb **jtab);
 
 //------------------------------- low_input -------------------------------//
 
 void	ft_three_arg_2(char **argv);
 void	ft_four_arg_2(char **argv);
 void	ft_low_input_2(int argc, char **argv, int on);
-
-
-
-
+int		verif_order_input(t_list *a);
+void	ft_low_input_2(int argc, char **argv, int on);
 
 #endif

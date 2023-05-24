@@ -6,7 +6,7 @@
 /*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 10:26:47 by jsoulet           #+#    #+#             */
-/*   Updated: 2023/05/23 11:18:33 by jsoulet          ###   ########.fr       */
+/*   Updated: 2023/05/24 11:33:22 by jsoulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,17 @@
 
 void	found_conditions(int argc, char **argv, int on, int i)
 {
-	if (argc == 1)
-	{
+	if (argc == 1 && on == 0)
 		i = 1;
-	}
 	if (argc == 2 && on == 1 && ft_atoi(argv[0]) > ft_atoi(argv[1]))
 	{
 		free_argv(argv, on);
 		ft_printf("sa\n");
+		exit(0);
+	}
+	if (argc == 2 && on == 1 && ft_atoi(argv[0]) < ft_atoi(argv[1]))
+	{
+		free_argv(argv, on);
 		exit(0);
 	}
 	if (found_double(argc, argv) == 1)

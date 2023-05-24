@@ -6,7 +6,7 @@
 /*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 23:51:45 by jsoulet           #+#    #+#             */
-/*   Updated: 2023/05/23 09:40:21 by jsoulet          ###   ########.fr       */
+/*   Updated: 2023/05/24 12:55:06 by jsoulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	b_replace(t_list **a, t_list **b, int index)
 	}
 }
 
-void	sort_p1(j_tab **t2, t_list *a)
+void	sort_p1(t_jtb **t2, t_list *a)
 {
 	int	i;
 	int	j;
@@ -80,7 +80,7 @@ void	sort_p1(j_tab **t2, t_list *a)
 	free(tabs_tmp);
 }
 
-int	next_min(j_tab **t2, int i, int nb)
+int	next_min(t_jtb **t2, int i, int nb)
 {
 	int	j;
 	int	tmp1;
@@ -104,7 +104,7 @@ int	next_min(j_tab **t2, int i, int nb)
 	return (tmp1);
 }
 
-int	min_nb(j_tab **t2, int i)
+int	min_nb(t_jtb **t2, int i)
 {
 	int	tmp1;
 	int	j;

@@ -6,13 +6,13 @@
 /*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 09:42:17 by jsoulet           #+#    #+#             */
-/*   Updated: 2023/05/23 09:45:03 by jsoulet          ###   ########.fr       */
+/*   Updated: 2023/05/24 12:54:52 by jsoulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	found_index(j_tab **jtab, int index)
+int	found_index(t_jtb **jtab, int index)
 {
 	int	i;
 
@@ -26,7 +26,7 @@ int	found_index(j_tab **jtab, int index)
 	return (-1);
 }
 
-int	*copie_current(j_tab **jtab, int *current)
+int	*copie_current(t_jtb **jtab, int *current)
 {
 	int	i;
 	int	*new;
@@ -45,7 +45,7 @@ int	*copie_current(j_tab **jtab, int *current)
 	return (new);
 }
 
-int	jtab_len(j_tab **jtab)
+int	jtab_len(t_jtb **jtab)
 {
 	int	i;
 

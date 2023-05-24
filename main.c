@@ -6,7 +6,7 @@
 /*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 14:07:20 by jsoulet           #+#    #+#             */
-/*   Updated: 2023/05/23 11:13:53 by jsoulet          ###   ########.fr       */
+/*   Updated: 2023/05/24 12:53:54 by jsoulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	main(int argc, char **argv)
 		on = 1;
 	}
 	found_conditions(argc, argv, on, 0);
-	if (argc <= 6)
+	if (argc <= 6 && on == 0)
 		ft_low_input(argc, argv, on);
 	else
 		push_swap(argv, on);
@@ -63,7 +63,7 @@ void	push_swap(char **argv, int on)
 
 void	make_tabi_jtab(t_list **a, t_list **b, t_tab **tabm, t_tab *line)
 {
-	j_tab	**jtab;
+	t_jtb	**jtab;
 	int		*tabi;
 
 	jtab = NULL;
@@ -81,7 +81,7 @@ void	make_tabi_jtab(t_list **a, t_list **b, t_tab **tabm, t_tab *line)
 	a_replace(a, b, 2);
 	replace_a(a, b, rmtada(a, b, line->tabs[line->lens - 1]));
 	replace_s_len(jtab, *b);
-	choice_p(a, b, jtab, 0);
+	choice_p(a, b, jtab, jtab_len(jtab));
 	a_replace(a, b, 0);
 	clear_jtab(jtab);
 	ft_list_instruction(0);

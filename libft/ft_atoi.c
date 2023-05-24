@@ -6,7 +6,7 @@
 /*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 15:04:52 by jsoulet           #+#    #+#             */
-/*   Updated: 2023/04/04 10:47:47 by jsoulet          ###   ########.fr       */
+/*   Updated: 2023/05/24 12:31:10 by jsoulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 long long int	ft_atoi(const char *str)
 {
 	long long int	nb;
-	int	i;
-	int	is_neg;
+	int				i;
+	int				is_neg;
 
 	nb = 0;
 	i = 0;

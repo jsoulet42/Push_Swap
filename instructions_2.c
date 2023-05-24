@@ -6,7 +6,7 @@
 /*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 09:46:25 by jsoulet           #+#    #+#             */
-/*   Updated: 2023/05/23 09:52:59 by jsoulet          ###   ########.fr       */
+/*   Updated: 2023/05/24 13:03:06 by jsoulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstprint2(t_list *list)
 {
-	r_opti	opti;
+	t_ropti	opti;
 
 	make_opti(&opti);
 	while (list)
@@ -39,7 +39,7 @@ void	ft_lstprint2(t_list *list)
 	ft_print_opti_rrr(&opti, 0);
 }
 
-void	ft_print_opti_rr(r_opti *opti, int bool)
+void	ft_print_opti_rr(t_ropti *opti, int bool)
 {
 	if (opti->ra > 0 || opti->rb > 0)
 	{
@@ -68,7 +68,7 @@ void	ft_print_opti_rr(r_opti *opti, int bool)
 		opti->rrb++;
 }
 
-void	ft_print_opti_rrr(r_opti *opti, int bool)
+void	ft_print_opti_rrr(t_ropti *opti, int bool)
 {
 	if (opti->rra > 0 || opti->rrb > 0)
 	{
@@ -97,7 +97,7 @@ void	ft_print_opti_rrr(r_opti *opti, int bool)
 		opti->rb++;
 }
 
-void	make_opti(r_opti *opti)
+void	make_opti(t_ropti *opti)
 {
 	opti->ra = 0;
 	opti->rb = 0;

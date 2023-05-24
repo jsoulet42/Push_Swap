@@ -6,13 +6,13 @@
 /*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 09:03:09 by jsoulet           #+#    #+#             */
-/*   Updated: 2023/05/23 09:44:19 by jsoulet          ###   ########.fr       */
+/*   Updated: 2023/05/24 12:56:47 by jsoulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	fill_exclu(t_list *a, j_tab **jtab, int *p_line)
+void	fill_exclu(t_list *a, t_jtb **jtab, int *p_line)
 {
 	int	i;
 	int	k;
@@ -41,7 +41,7 @@ void	fill_exclu(t_list *a, j_tab **jtab, int *p_line)
 	fill_inclu(jtab);
 }
 
-void	fill_inclu(j_tab **t)
+void	fill_inclu(t_jtb **t)
 {
 	int	i;
 	int	j;
@@ -67,7 +67,7 @@ void	fill_inclu(j_tab **t)
 	}
 }
 
-int	found_first_in_a(j_tab *jtab, t_list *a)
+int	found_first_in_a(t_jtb *jtab, t_list *a)
 {
 	int	temp_len;
 

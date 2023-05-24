@@ -6,7 +6,7 @@
 /*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 10:11:19 by jsoulet           #+#    #+#             */
-/*   Updated: 2023/05/23 10:11:59 by jsoulet          ###   ########.fr       */
+/*   Updated: 2023/05/24 12:55:43 by jsoulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	creat_list(t_list **a, char **argv, int on)
 	}
 	if (!*a)
 	{
-		ft_printf("Error != a\n");
+		ft_printf("Error in creat_list\n");
 		exit(0);
 	}
 }

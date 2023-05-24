@@ -6,7 +6,7 @@
 /*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 09:32:23 by jsoulet           #+#    #+#             */
-/*   Updated: 2023/05/23 09:32:45 by jsoulet          ###   ########.fr       */
+/*   Updated: 2023/05/24 12:55:27 by jsoulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	choice_between_500_or_100(t_list *b, int bool)
 	return ((len / 8) * 7);
 }
 
-int	found_len_max(j_tab **jtab)
+int	found_len_max(t_jtb **jtab)
 {
 	int	res;
 	int	i;
