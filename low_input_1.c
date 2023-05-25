@@ -6,32 +6,21 @@
 /*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 10:08:23 by jsoulet           #+#    #+#             */
-/*   Updated: 2023/05/24 12:40:13 by jsoulet          ###   ########.fr       */
+/*   Updated: 2023/05/24 16:13:25 by jsoulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_low_input(int argc, char **argv, int on)
+void	ft_low_input(int argc, char **argv)
 {
-	if (on == 0)
-	{
-		if (argc <= 2)
-			return ;
-		else if (argc == 3)
-		{
-			if (ft_atoi(argv[1]) > ft_atoi(argv[2]))
-				ft_printf("sa\n");
-		}
-		else if (argc == 4)
-			ft_three_arg(argv);
-		else if (argc == 5)
-			ft_four_arg(argv);
-		else if (argc == 6)
-			ft_five_arg(argv, on);
-		return ;
-	}
-	ft_low_input_2(argc, argv, on);
+	if (argc == 3)
+		ft_three_arg(argv);
+	else if (argc == 4)
+		ft_four_arg(argv);
+	else if (argc == 5)
+		ft_five_arg(argv);
+	return ;
 }
 
 void	ft_five_arg_end(t_list **a, t_list **b)
@@ -41,14 +30,14 @@ void	ft_five_arg_end(t_list **a, t_list **b)
 	ft_list_instruction(0);
 }
 
-void	ft_five_arg(char **argv, int on)
+void	ft_five_arg(char **argv)
 {
 	t_list	*a;
 	t_list	*b;
 
 	a = NULL;
 	b = NULL;
-	creat_list(&a, argv, on);
+	creat_list(&a, argv);
 	if (verif_order_input(a) == 0)
 	{
 		ft_lstclear(&a);

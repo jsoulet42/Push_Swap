@@ -6,7 +6,7 @@
 /*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 14:07:20 by jsoulet           #+#    #+#             */
-/*   Updated: 2023/05/24 12:53:54 by jsoulet          ###   ########.fr       */
+/*   Updated: 2023/05/25 16:50:53 by jsoulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,34 +14,52 @@
 
 int	main(int argc, char **argv)
 {
-	int	on;
-
-	on = 0;
 	if (argc == 1)
 		return (0);
-	if (argc <= 2)
-	{
-		argv = ft_split(argv[1], ' ');
-		argc = 0;
-		if (argv[0] == NULL)
-		{
-			free(argv);
-			return (0);
-		}
-		while (argv[argc])
-			argc++;
-		on = 1;
-	}
-	found_conditions(argc, argv, on, 0);
-	if (argc <= 6 && on == 0)
-		ft_low_input(argc, argv, on);
+	argv = make_argv(argc, argv);
+	argc = 0;
+	while (argv[argc])
+		argc++;
+	found_conditions(argc, argv, 0);
+	if (argc <= 5)
+		ft_low_input(argc, argv);
 	else
-		push_swap(argv, on);
-	free_argv(argv, on);
+		push_swap(argv);
+	free_argv(argv);
 	return (0);
 }
 
-void	push_swap(char **argv, int on)
+char	**make_argv(int argc, char **argv)
+{
+	int		i;
+	char	**dest;
+
+	i = 0;
+	if (argc <= 2)
+	{
+		dest = ft_split(argv[1], ' ');
+		argc = 0;
+		if (dest[0] == NULL)
+		{
+			free(dest);
+			return (0);
+		}
+	}
+	else
+	{
+		dest = (char **) malloc((argc) * sizeof(char *));
+		while (argv[i + 1])
+		{
+			dest[i] = ft_strdup(argv[i + 1]);
+			i++ ;
+		}
+		dest[i] = NULL;
+	}
+	return (dest);
+}
+
+
+void	push_swap(char **argv)
 {
 	t_list	*a;
 	t_list	*b;
@@ -50,7 +68,7 @@ void	push_swap(char **argv, int on)
 
 	a = NULL;
 	b = NULL;
-	creat_list(&a, argv, on);
+	creat_list(&a, argv);
 	tabm = make_tab(a);
 	make_line(tabm, a);
 	line = found_line(tabm);
@@ -88,14 +106,10 @@ void	make_tabi_jtab(t_list **a, t_list **b, t_tab **tabm, t_tab *line)
 	clear_all(*a, tabm, &line, tabi);
 }
 
-void	free_argv(char **argv, int on)
+void	free_argv(char **argv)
 {
 	int	i;
 
-	if (argv[1] == NULL || argv[2] == NULL)
-		return ;
-	if (on == 0)
-		return ;
 	i = 0;
 	while (argv[i])
 	{

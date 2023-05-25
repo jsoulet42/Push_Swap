@@ -6,24 +6,18 @@
 /*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 10:26:47 by jsoulet           #+#    #+#             */
-/*   Updated: 2023/05/24 16:58:04 by jsoulet          ###   ########.fr       */
+/*   Updated: 2023/05/25 16:20:54 by jsoulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
-void	found_conditions(int argc, char **argv,int i)
+void	found_conditions(int argc, char **argv, int i)
 {
 	if (argc == 1)
 	{
 		if ((ft_atoi(argv[i]) > 2147483647 && ft_atoi(argv[i]) < -2147483648))
 			i = 1;
-	}
-	if (argc == 2 && ft_atoi(argv[0]) > ft_atoi(argv[1]))
-	{
-		free_argv(argv);
-		ft_printf("sa\n");
-		exit(0);
 	}
 	if ((found_double(argv) == 1 || found_char(argv) == 1) && i != 1)
 		i = 1;
@@ -46,7 +40,7 @@ int	found_double(char **argv)
 	while (argv[i + 1] != NULL)
 	{
 		j = i + 1;
-		while (	argv[j])
+		while (argv[j])
 		{
 			if (ft_atoi(argv[i]) == ft_atoi(argv[j]))
 				return (1);
@@ -95,4 +89,17 @@ int	found_int(char **argv)
 		i++;
 	}
 	return (0);
+}
+
+void	free_argv(char **argv)
+{
+	int	i;
+
+	i = 0;
+	while (argv[i])
+	{
+		free(argv[i]);
+		i++;
+	}
+	free(argv);
 }

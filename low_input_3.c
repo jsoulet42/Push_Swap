@@ -6,13 +6,13 @@
 /*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 10:27:42 by jsoulet           #+#    #+#             */
-/*   Updated: 2023/05/23 11:13:32 by jsoulet          ###   ########.fr       */
+/*   Updated: 2023/05/24 16:28:32 by jsoulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_three_arg_2(char **argv)
+void	ft_three_arg(char **argv)
 {
 	if (ft_atoi(argv[0]) > ft_atoi(argv[2])
 		&& ft_atoi(argv[1]) > ft_atoi(argv[0]))
@@ -31,7 +31,7 @@ void	ft_three_arg_2(char **argv)
 		ft_printf("sa\nrra\n");
 }
 
-void	ft_four_arg_2(char **argv)
+void	ft_four_arg(char **argv)
 {
 	int	a;
 	int	b;
@@ -45,7 +45,7 @@ void	ft_four_arg_2(char **argv)
 	if (a < b && b < c && c < d)
 		return ;
 	ft_printf("rra\npb\n");
-	ft_three_arg_2(argv);
+	ft_three_arg(argv);
 	if (d < a && d < b && d < c)
 		ft_printf("pa\n");
 	else if (d > a && d > b && d > c)
@@ -57,7 +57,7 @@ void	ft_four_arg_2(char **argv)
 		ft_printf("pa\nsa\n");
 }
 
-void	ft_low_input_2(int argc, char **argv, int on)
+/*void	ft_low_input_2(int argc, char **argv, int on)
 {
 	if (argc == 2)
 	{
@@ -70,4 +70,4 @@ void	ft_low_input_2(int argc, char **argv, int on)
 		ft_four_arg_2(argv);
 	else if (argc == 5)
 		ft_five_arg(argv, on);
-}
+}*/

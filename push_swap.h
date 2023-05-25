@@ -6,7 +6,7 @@
 /*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 12:42:08 by jsoulet           #+#    #+#             */
-/*   Updated: 2023/05/24 13:02:56 by jsoulet          ###   ########.fr       */
+/*   Updated: 2023/05/25 16:50:29 by jsoulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,9 +145,9 @@ void	chearch_line(t_tab **struc, int i);
 
 //------------------------------- main --------------------------------------//
 
-void	creat_list(t_list **a, char **argv, int on);
+void	creat_list(t_list **a, char **argv);
 
-void	push_swap(char **argv, int on);
+void	push_swap(char **argv);
 
 //------------------------------ push_in_b.c ---------------------------------//
 
@@ -165,13 +165,13 @@ t_mtb	*make_mtab(t_jtb **jtab, t_list *a);
 
 //------------------------------ conditions ----------------------------------//
 
-int		found_double(int argc, char **argv);
+int		found_double(char **argv);
 
-int		found_char(int argc, char **argv);
+int		found_char(char **argv);
 
-int		found_int(int argc, char **argv);
+int		found_int(char **argv);
 
-void	found_conditions(int argc, char **argv, int on, int i);
+void	found_conditions(int argc, char **argv, int i);
 
 //------------------------------ push_in_a ----------------------------------//
 
@@ -239,12 +239,12 @@ int		found_len_max(t_jtb **jtab);
 int		*quart(t_list *b, int len);
 void	quart2(t_list *b, int i, int index_tmp, int **tab_quart);
 int		choice_between_500_or_100(t_list *b, int bool);
-void	free_argv(char **argv, int on);
-void	ft_low_input(int argc, char **argv,	int on);
+void	free_argv(char **argv);
+void	ft_low_input(int argc, char **argv);
 void	ft_three_arg(char **argv);
 void	ft_four_arg(char **argv);
 void	ft_three_arg_lst(t_list **a);
-void	ft_five_arg(char **argv, int on);
+void	ft_five_arg(char **argv);
 int		ft_min_in_a(t_list *a);
 int		ft_min2_in_a(t_list *a, int min);
 int		ft_pos_in_a(t_list *a, int min);
@@ -260,8 +260,9 @@ void	choice_p_2(t_list **a, t_list **b, t_jtb **jtab);
 
 void	ft_three_arg_2(char **argv);
 void	ft_four_arg_2(char **argv);
-void	ft_low_input_2(int argc, char **argv, int on);
+void	ft_low_input_2(int argc, char **argv);
 int		verif_order_input(t_list *a);
-void	ft_low_input_2(int argc, char **argv, int on);
+void	ft_low_input_2(int argc, char **argv);
+char	**make_argv(int argc, char **argv);
 
 #endif

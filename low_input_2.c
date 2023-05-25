@@ -6,7 +6,7 @@
 /*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 10:09:56 by jsoulet           #+#    #+#             */
-/*   Updated: 2023/05/24 11:47:51 by jsoulet          ###   ########.fr       */
+/*   Updated: 2023/05/24 16:27:35 by jsoulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	ft_pos_in_a(t_list *a, int min)
 	return (-1);
 }
 
-void	ft_four_arg(char **argv)
+/*void	ft_four_arg(char **argv)
 {
 	int	a;
 	int	b;
@@ -73,9 +73,9 @@ void	ft_four_arg(char **argv)
 		ft_printf("rra\npa\nra\nra\n");
 	else
 		ft_printf("pa\nsa\n");
-}
+}*/
 
-void	ft_three_arg(char **argv)
+void	ft_three_arg_a_supprimer(char **argv)
 {
 	if (ft_atoi(argv[1]) > ft_atoi(argv[3])
 		&& ft_atoi(argv[2]) > ft_atoi(argv[1]))
