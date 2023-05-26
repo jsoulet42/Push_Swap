@@ -6,7 +6,7 @@
 /*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 10:11:19 by jsoulet           #+#    #+#             */
-/*   Updated: 2023/05/24 16:08:08 by jsoulet          ###   ########.fr       */
+/*   Updated: 2023/05/25 17:51:58 by jsoulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,23 +24,6 @@ void	ft_tabi_empty(t_list **a, t_list **b)
 			ft_p(&a, &b, 2);
 		}
 		ft_list_instruction(0);
-	}
-}
-
-void	verif_end(t_list *a)
-{
-	int	tmp;
-
-	tmp = a->content;
-	a = a->next;
-	while (a)
-	{
-		if (tmp > a->content)
-		{
-			ft_printf("KO\n");
-			return ;
-		}
-		a = a->next;
 	}
 }
 

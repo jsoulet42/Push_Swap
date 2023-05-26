@@ -23,7 +23,6 @@ SRCS	=	make_line.c\
 			push_pattern.c\
 			low_input_1.c\
 			low_input_2.c\
-			low_input_3.c\
 			utils_1.c
 
 

@@ -6,7 +6,7 @@
 /*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 14:12:10 by jsoulet           #+#    #+#             */
-/*   Updated: 2023/04/21 15:08:56 by jsoulet          ###   ########.fr       */
+/*   Updated: 2023/05/25 18:23:24 by jsoulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ void	make_line(t_tab **struc, t_list *a)
 		a = a->next;
 	}
 }
+
 /*cette fonction sert a chercher dans les tableaux
 précédent si le plus grand nombre est inferieur au nombre actuel*/
-
 void	chearch_line(t_tab **struc, int i)
 {
 	int	j;

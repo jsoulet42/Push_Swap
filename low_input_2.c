@@ -6,7 +6,7 @@
 /*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 10:09:56 by jsoulet           #+#    #+#             */
-/*   Updated: 2023/05/24 16:27:35 by jsoulet          ###   ########.fr       */
+/*   Updated: 2023/05/25 17:44:09 by jsoulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,51 +49,6 @@ int	ft_pos_in_a(t_list *a, int min)
 	return (-1);
 }
 
-/*void	ft_four_arg(char **argv)
-{
-	int	a;
-	int	b;
-	int	c;
-	int	d;
-
-	a = ft_atoi(argv[1]);
-	b = ft_atoi(argv[2]);
-	c = ft_atoi(argv[3]);
-	d = ft_atoi(argv[4]);
-	if (a < b && b < c && c < d)
-		return ;
-	ft_printf("rra\npb\n");
-	ft_three_arg(argv);
-	if (d < a && d < b && d < c)
-		ft_printf("pa\n");
-	else if (d > a && d > b && d > c)
-		ft_printf("pa\nra\n");
-	else if ((d > b && d > c && d < a) || (d > a && d > b && d < c)
-		|| (d > a && d > c && d < b))
-		ft_printf("rra\npa\nra\nra\n");
-	else
-		ft_printf("pa\nsa\n");
-}*/
-
-void	ft_three_arg_a_supprimer(char **argv)
-{
-	if (ft_atoi(argv[1]) > ft_atoi(argv[3])
-		&& ft_atoi(argv[2]) > ft_atoi(argv[1]))
-		ft_printf("rra\n");
-	else if (ft_atoi(argv[2]) < ft_atoi(argv[3])
-		&& ft_atoi(argv[1]) > ft_atoi(argv[3]))
-		ft_printf("ra\n");
-	else if (ft_atoi(argv[1]) > ft_atoi(argv[2])
-		&& ft_atoi(argv[1]) < ft_atoi(argv[3]))
-		ft_printf("sa\n");
-	else if (ft_atoi(argv[1]) < ft_atoi(argv[2])
-		&& ft_atoi(argv[2]) > ft_atoi(argv[3]))
-		ft_printf("sa\nra\n");
-	else if (ft_atoi(argv[1]) > ft_atoi(argv[2])
-		&& ft_atoi(argv[1]) > ft_atoi(argv[3]))
-		ft_printf("sa\nrra\n");
-}
-
 void	ft_three_arg_lst(t_list **a)
 {
 	if ((*a)->content < (*a)->next->content
@@ -117,4 +72,49 @@ void	ft_three_arg_lst(t_list **a)
 		ft_ss(&a, NULL, 1);
 		ft_rrr(&a, NULL, 1);
 	}
+}
+
+void	ft_three_arg(char **argv)
+{
+	if (ft_atoi(argv[0]) > ft_atoi(argv[2])
+		&& ft_atoi(argv[1]) > ft_atoi(argv[0]))
+		ft_printf("rra\n");
+	else if (ft_atoi(argv[1]) < ft_atoi(argv[2])
+		&& ft_atoi(argv[0]) > ft_atoi(argv[2]))
+		ft_printf("ra\n");
+	else if (ft_atoi(argv[0]) > ft_atoi(argv[1])
+		&& ft_atoi(argv[0]) < ft_atoi(argv[2]))
+		ft_printf("sa\n");
+	else if (ft_atoi(argv[0]) < ft_atoi(argv[1])
+		&& ft_atoi(argv[1]) > ft_atoi(argv[2]))
+		ft_printf("sa\nra\n");
+	else if (ft_atoi(argv[0]) > ft_atoi(argv[1])
+		&& ft_atoi(argv[0]) > ft_atoi(argv[2]))
+		ft_printf("sa\nrra\n");
+}
+
+void	ft_four_arg(char **argv)
+{
+	int	a;
+	int	b;
+	int	c;
+	int	d;
+
+	a = ft_atoi(argv[0]);
+	b = ft_atoi(argv[1]);
+	c = ft_atoi(argv[2]);
+	d = ft_atoi(argv[3]);
+	if (a < b && b < c && c < d)
+		return ;
+	ft_printf("rra\npb\n");
+	ft_three_arg(argv);
+	if (d < a && d < b && d < c)
+		ft_printf("pa\n");
+	else if (d > a && d > b && d > c)
+		ft_printf("pa\nra\n");
+	else if ((d > b && d > c && d < a) || (d > a && d > b && d < c)
+		|| (d > a && d > c && d < b))
+		ft_printf("rra\npa\nra\nra\n");
+	else
+		ft_printf("pa\nsa\n");
 }

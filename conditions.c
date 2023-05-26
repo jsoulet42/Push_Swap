@@ -6,13 +6,13 @@
 /*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 10:26:47 by jsoulet           #+#    #+#             */
-/*   Updated: 2023/05/24 16:58:04 by jsoulet          ###   ########.fr       */
+/*   Updated: 2023/05/25 18:27:00 by jsoulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	found_conditions(int argc, char **argv,int i)
+void	found_conditions(int argc, char **argv, int i)
 {
 	if (argc == 1)
 	{
@@ -46,7 +46,7 @@ int	found_double(char **argv)
 	while (argv[i + 1] != NULL)
 	{
 		j = i + 1;
-		while (	argv[j])
+		while (argv[j])
 		{
 			if (ft_atoi(argv[i]) == ft_atoi(argv[j]))
 				return (1);

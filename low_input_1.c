@@ -6,7 +6,7 @@
 /*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 10:08:23 by jsoulet           #+#    #+#             */
-/*   Updated: 2023/05/24 16:13:25 by jsoulet          ###   ########.fr       */
+/*   Updated: 2023/05/25 18:20:28 by jsoulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ void	ft_five_arg(char **argv)
 	ft_three_arg_lst(&a);
 	ft_five_arg_end(&a, &b);
 	ft_lstclear(&a);
-	ft_lstclear(&b);
 }
 
 int	ft_five_arg_2(t_list **a, t_list **b)
