@@ -6,7 +6,7 @@
 /*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 14:07:20 by jsoulet           #+#    #+#             */
-/*   Updated: 2023/05/25 18:27:13 by jsoulet          ###   ########.fr       */
+/*   Updated: 2023/05/29 13:02:02 by jsoulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,6 @@ char	**make_argv(int argc, char **argv)
 	{
 		dest = ft_split(argv[1], ' ');
 		argc = 0;
-		if (dest[0] == NULL)
-		{
-			free(dest);
-			return (0);
-		}
 	}
 	else
 	{
@@ -54,6 +49,11 @@ char	**make_argv(int argc, char **argv)
 			i++ ;
 		}
 		dest[i] = NULL;
+	}
+	if (dest[0] == NULL)
+	{
+		free(dest);
+		exit (0);
 	}
 	return (dest);
 }
