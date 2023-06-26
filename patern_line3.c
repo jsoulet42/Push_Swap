@@ -6,7 +6,7 @@
 /*   By: jsoulet <jsoulet@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 16:19:38 by jsoulet           #+#    #+#             */
-/*   Updated: 2023/05/24 12:54:42 by jsoulet          ###   ########.fr       */
+/*   Updated: 2023/05/29 14:07:42 by jsoulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ void	copy_pl(t_jtb **jtab, int *pline_current, int dest)
 	{
 		if (jtab[i]->s_len == 0 && jtab[i]->index
 			!= sch_int(jtab[dest]->exclu, jtab[i]->index))
-				jtab[dest]->exclu[j++] = jtab[i]->index;
+			jtab[dest]->exclu[j++] = jtab[i]->index;
 	}
 }
 
